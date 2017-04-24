@@ -1,0 +1,20 @@
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aula 6
+
+## Sub-$\sigma$ álgebras
+
+Uma sub-$\sigma$ álgebra $\mathcal{F}_1$ é uma coleção de conjuntos contida em uma $\sigma$-álgebra $\mathca{F}$. Em algumas aplicações, é útil definir o conceito de independência entre $\sigma$-álgebras usando ideias de independência de conjuntos. 
+
+Considerando o espaço de probabilidades $(\Omega, \mathcal{F}, \mathbb{P})$, duas sub-$\sigma$ álgebras de $\mathcal{F}$, digamos $\mathcal{F}_1$ e $\mathcal{F}_2$, são ditas independentes se, para todo $A \in \mathcal{F}_1$ e todo $B \in \mathcal{F}_2$ valer que
+
+$$\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B).$$
+## Variáveis aleatórias
+
+Variáveis aleatórias são funções de $\Omega$ em $\mathbb{R}$ que satisfazem a seguinte propriedade:
+
+$$\text{Para todo }B \in \mathcal{B}(\mathbb{R})\text{ tem-se que }X^{-1}(B) =_{def} \{\omega \in \Omega \ : \ X(\omega) \in B \} \in \mathcal{F}$$
+
+

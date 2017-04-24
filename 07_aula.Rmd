@@ -1,0 +1,45 @@
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aula 7
+
+### Medidas induzidas por variáveis aleatórias
+
+Toda variável aleatória $X:\Omega\rightarrow\mathbb{R}$ definida em um espaço de probabilidade $(\Omega, \mathcal{F}, \mathbb{P})$ pode ser traduzida para uma medida de probabilidade na reta, no espaço mensurável $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ (a reta e seus borelianos). Essa medida caracteriza completamente a variável $X$  no seu espaço original, de tal forma que pode-se abandonar o espaço original para os cálculos probalísticos.
+
+A medida induzida por $X$ é dada por
+
+$$\mathbb{P}_X = \{\omega : X(\omega) \in B\}, \ B \in \mathcal{B}(\mathbb{R}).$$
+
+Essa função é de fato uma medida sobre o espaço mensurável da reta e seus borelianos pois
+
+1. $\mathbb{P}(X^{-1}(\mathbb{R})) = \mathbb{P}(\Omega) = 1$
+2. $X^{-1}(\cup B_n) = \cup X^{-1}(B_n)$
+3. Se $B_n$ for uma sequência de eventos disjuntos, então $\mathbb{P}(X^{-1}(\cup_n B_n)) = \mathbb{P}(\cup_n X^{-1}(B_n)) \leq \sum_{i=1}^n\mathbb{P}(X^{-1}(B_n))$
+
+Para aproveitar a estrutura dos números reais na análise de variáveis aleatórias, o passo importante é definir a função de distribuição $F_X:\mathbb{R}\rightarrow[0,1]$ de uma variável aleatória $X$:
+
+$$F_X(x) = \mathbb{P}((-\infty,x]) = \mathbb{P}(\omega: X(\omega)\in(-\infty,x]) = \mathbb{P}(X \leq x).$$
+Devido às propriedades de $\mathbb{P}$, a função $F_X$ tem uma série de propriedades:
+
+1. $F_X$ é não-decrescente.
+2. $F_X$ é contínua à direita.
+
+Seja $(x_n)_{1}^\infty$ uma sequência decrescente tal que $x_n \rightarrow x$. Então
+
+$$F_X(x_n) = F_X(\lim_n x_n) = \mathbb{P}(\lim_n X \in (-\infty,x_n]) = \lim_n\mathbb{P}(X \in (-\infty,x_n]) \geq$$
+$$\lim_n \mathbb{P}(x \in (-\infty, x_{n+1}]) = F_X(x_{n+1})$$
+
+3. $\lim_{x \rightarrow -\infty}F(x) = 0$ e $\lim_{x \rightarrow \infty}F(x) = 1$
+
+4. A quantidade de pontos tais que $F_X(x-) \neq F_X(x+)$ é enumerável.
+
+Considere $D =\{x:F_X(x)-F_X(x-)>0\}$, o conjunto de descontinuidades da função $F_X$. Digamos que o conjunto $D$ é formado por $\{B_x\}$, com $x$ em $[x:F_X(x)=F_X(x-)]$. Para qualquer conjunto $A \in \mathcal{B}(\mathbb{R})$, e $\epsilon > 0$ arbitrário, temos que
+
+$$n\epsilon \leq \sum_{x=1}^n\mathbb{P}(B_x \cap A) \leq \mathbb{P}(A), \ \text{quando }\mathbb{P}(B_x \cap A)\geq \epsilon > 0.$$
+
+Segue que $n \leq \frac{\mathbb{P}(A)}{\epsilon}$, e portanto o número de descontinuidades em $A$ é finita. Para concluir a demonstração, falta mostrar que podemos escrever $\{x: \mathbb{P}(B_x \cap A)\}$ como uma união enumerável.
+
+$$\{x: \mathbb{P}(B_x \cap A) > 0\} = \bigcup_{\epsilon \in \mathbb{Q+}} \{x: \mathbb{P}(B_x \cap A) > \epsilon\}$$ 
+

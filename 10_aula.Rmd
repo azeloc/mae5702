@@ -1,0 +1,50 @@
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aula 10
+
+## Indepência de variáveis aleatórias
+
+Considere um conjunto de variáveis aleatórias $X_1, ..., X_n$ definidas em um espaço de probabilidades $(\Omega, \mathcal{F}, \mathbb{P})$. Diz-se que essas variáveis aleatórias são independentes se
+
+$$\mathbb{P}(X_1 \in B_1, ..., X_n \in B_n) = \prod_{i=1}^n\mathbb{P}(X_i \in B_i), \ \forall B_i \in \mathcal{B}(\mathbb{R}).$$
+
+Equivalentemente, podemos dizer que as v.a.'s $X_1, ..., X_n$ são independentes se 
+
+$$\sigma(X_1),...,\sigma(X_n)$$
+
+forem independentes duas a duas.
+
+### Resultado
+
+Considere um conjunto de variáveis aleatórias $X_1, ..., X_n$ definidas em um espaço de probabilidades $(\Omega, \mathcal{F}, \mathbb{P})$. 
+
+$$X_1, ..., X_n \text{ são independentes} \iff F_{(X_1,...,X_n)}(t_1,...,t_n) = \prod_{i=1}^n F_{X_i}(t_i), \ \forall \ t = (t_1,...,t_n) \in \mathbb{R}^k$$
+### Demonstração
+
+$(\implies)$
+
+Tome 
+
+$$B_i = (-\infty,t_i], i = 1,2,...,k.$$
+
+Aplicando essa identidade na definição dada acima, tem-se o resultado esperado.
+
+Para a volta, considere novamente os conjuntos $B_i$ do conjunto anterior. Nessa notação, podemos escrever a hipótese de outra forma?
+
+$$F_{(X_1,...,X_n)}(t_1,...,t_n)=\prod_{i=1}^n F_{X_i}(t_i), \ \forall \ t = (t_1,...,t_n) \in \mathbb{R}^k \iff \prod_{i=1}^n \mathbb{P}_{X_i}(B_i)=\mathbb{P}_{(X_1,...,X_n)}(\cap_iB_i), \ \forall \ B_i = (-\infty,t_i]$$
+
+### Resultado
+
+Seja $X = (X_1,...,X_k)$ um vetor aleatório discreto. Então $X_1, ..., X_k$ são independentes $\iff \mathbb{P}(X_1 = x_1, ..., X_k= x_k) = \prod_{i=1}^k \mathbb{P}(X_i = x_i), \ \forall x_i \in X_i(\Omega)$ 
+
+### Demonstração 
+
+Para a ida, tome $B_i = \{x_i\}, \ i=1,...,k$.
+
+Para a volta, defina $D_i = \{(-\infty,t_i]\cap X_i(\Omega)\} = \{x \in X_i(\Omega) \ : \ x \leq t_i\}$.
+
+$$F_{X}(t_1, ..., t_k) = \mathbb{P}(X_1 \leq t_1, ..., X_k \leq t_k) = \prod_{i=1}^k \mathbb{P}(X_i \leq x_i) =\sum_{x_i \in D_1}...\sum_{x_k \in D_k}\mathbb{P}(X_1 = x_1, ..., X_k = x_k)$$
+$$=\prod_{i=1}^n\left(\sum_{x_i \in D_i}\mathbb{P}(X_i = x_i)\right) = \prod_{i=1}^n\mathbb{P}(X_i \in (-\infty,t_i])$$
+

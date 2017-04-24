@@ -1,0 +1,133 @@
+```{r, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Aula 2
+
+## Avaliação
+
+- Três provas:
+    - Prova 1: 08/05/2017
+    - Prova 2: 28/06/2017
+    - Prova 3: 03/07/2017
+- A nota na disciplina será composta pela média das duas maiores notas de prova
+
+## Aula anterior: resumo
+
+- Definições básicas de espaços de probabilidade
+    - Espaço amostral $\Omega$
+    - Eventos: Subconjuntos do espaço amostral (representados por letras em caixa alta $A,B,...$)
+    - Operações com Eventos
+        - $A \cup B = \{\omega \in \Omega \ : \ \omega \in A \text{ ou }\omega \in B \}$
+        - $A \cap B = \{\omega \in \Omega \ : \ \omega \in A \text{ e }\omega \in B \}$
+        - $A \Delta B = (A \cap B^C)\cup(A^c \cap B)$
+        - $A - B = (A)\cap(B^c)$
+- Definição de Lim sup e Lim inf de uma sequência de eventos (sendo "eventos" qualquer subconjunto do espaço amostral)
+
+## Classes de subconjuntos de $\Omega$
+
+### Álgebras
+
+Uma classe $\mathcal{A}$ de subconjuntos de $\Omega$ é uma álgebra se
+
+1. $\Omega \in \mathcal{A}$
+1. $A \in \mathcal{A} \implies A^c \in \mathcal{A}$
+1. $A,B \in \mathcal{A} \implies A \cup B \in \mathcal{A}$
+
+$$\begin{array}{|ccc|}
+\hline
+&\text{Exemplo 1:} \\
+&\Omega \neq \emptyset & \mathcal{A} = \{A  :  A \subset \Omega\} = \mathcal{P}(\Omega)  \\
+& \mathcal{A}\text{ é um álgebra, pois:} & \\
+(1)&\ \Omega \subset \Omega \implies \Omega \in \mathcal{A} & \\
+(2)&\ A \in \mathcal{A} \implies A \subset \Omega & \implies A^c \subset \Omega \implies A^c \in \mathcal{A}  \\
+(3)&\ A,B \in \mathcal{A} \implies A,B \subset \Omega & \implies A \cup B \subset \Omega \implies A \cup B \in \mathcal{A}  \\
+\hline
+\end{array}$$
+
+$$\begin{array}{|ccc|}
+\hline
+&\text{Exemplo 2:} \\
+&\Omega = \mathbb{N} & \mathcal{A} = \{A  :  A \subset \Omega \ : \ A\text{ é finito ou }A^c\text{ é finito} \}  \\
+& \mathcal{A}\text{ é um álgebra, pois:} & \\
+(1)&\ \Omega^c = \emptyset\text{ é finito.} & \implies \Omega \in \mathcal{A} \\
+(2)&\ \text{ ou }(A \in \mathcal{A}\text{ porque }A^c\text{ é finito },\text{ de onde }A^c \in \mathcal{A}) & \text{ ou }(A \in \mathcal{A}\text{ porque }A\text{ é finito },\text{ de onde }A^c \in \mathcal{A}) \\
+(3)& COMPLETAR \\
+\hline
+\end{array}$$
+
+### $\sigma$-álgebras
+
+Uma classe $\mathcal{F}$ de subconjuntos de $\Omega$ é uma $\sigma$-álgebra se
+1. $\Omega \in mathcal{F}$
+2. $A \in \mathcal{F} \implies A^c \in \mathcal{F}$
+3. $((A_n)_{n\geq1}, A_n \in \mathcal{F} \ \forall n\geq1)\implies \cup_{n=1}^\infty A_n \in \mathcal{F} $
+
+$$\begin{array}{|ccc|}
+\hline
+&\text{Exemplo 3:} \\
+& \Omega = \mathbb{N} & \mathcal{F} = \{A  :  A \subset \Omega \ : \ A\text{ é finito ou }A^c\text{ é finito} \}  \\
+& \mathcal{A}\text{ é um álgebra, mas não é }\sigma \text{-álgebra, pois:} & \\
+& A_n = \{2n\} \in \mathcal{F}, \forall n \geq 1 \\
+& \cup_{n=1}^\infty A_n = \{\text{números pares}\} \\
+& (\cup_{n=1}^\infty A_n)^c = \{\text{números ímpares}\} \\
+& \text{Como nenhum dos dois conjuntos acima são finitos, nenhum dos dois percente à }\mathcal{F}&\text{.Por isso, a terceira propriedade não está satisfeita.}\\
+\hline
+\end{array}$$
+
+Mil exemplos que eu perdi
+
+### Resultado
+
+$\text{Se } A_n \in \mathcal{F}, \ \forall n\geq1 \text{ e } \mathcal{F} \ \sigma\text{-álgebra}, \text{ então} \cap_{n=1}^\infty A_n \in \mathcal{F}$
+
+### Demonstração
+
+$$A_n \in \mathcal{F}, \ \forall n\geq1 \implies (A_n)^c \in \mathcal{F}, \ \forall n\geq1 \implies$$
+$$ \cup_{n=1}^{\infty}(A_n)^c \in \mathcal{F} \implies (\cup_{n=1}^\infty(A_n)^c)^c \in \mathcal{F} $$
+Como $(\cup_{n=1}^\infty(A_n)^c)^c = \cap_{n=1}^\infty ((A_n)^c)^c = \cap_{n=1}^\infty A_n$, o resultado está demonstrado.
+
+$\blacksquare$
+
+### Resultado
+
+Sejam $\mathcal{F}_1$ e $\mathcal{F}_2$ $\sigma$-álgebras de subconjuntos de $\Omega$. Então, $\mathcal{F}_1 \cap \mathcal{F}_2$ também é $\sigma$-álgebra de subconjuntos de $\Omega$. 
+
+### Demonstração
+
+1. $\Omega \in \mathcal{F}_1,\mathcal{F}_2 \implies \Omega \in \mathcal{F}_1 \cap \mathcal{F}_2$
+1. $A \in \mathcal{F}_1 \cap \mathcal{F}_2 \implies (A \in \mathcal{F}_1,\mathcal{F}_2 \implies A^c \in \mathcal{F}_1,\mathcal{F}_2) \implies A^c \in (\mathcal{F}_1 \cap \mathcal{F}_2)$
+1. $A_n \in \mathcal{F}_1 \cap \mathcal{F}_2, \ \forall n\geq1 \implies (A_n \in \mathcal{F}_1,\mathcal{F}_2, \ \forall n\geq1 \implies A_n^c \in \mathcal{F}_1,\mathcal{F}_2, \ \forall n\geq1) \implies A^c_n \in (\mathcal{F}_1 \cap \mathcal{F}_2), \ \forall n\geq1$
+
+$\blacksquare$
+
+Considere $\mathcal{C}$ uma coleção de subconjuntos de $\Omega$. Sempre existe uma $\sigma$-álgebra de subconjuntos de $\Omega$ que contém $\mathcal{C}$. Um exemplo de $\sigma$-álgebra que satisfaz isso é $\mathcal{P}(\Omega)$
+
+Vamos considerar $\mathcal{F}_{\mathcal{C}}$ o conjunto de todas as $\sigma$-álgebras que contém $\mathcal{C}$. Primeiro vamos pontuar que $\mathcal{F}_{\mathcal{C}} \neq \emptyset$, pois, no mínimo, $\mathcal{P}(\Omega)\in\mathcal{F}_{\mathcal{C}}$.
+
+Seja $\sigma(\mathcal{C}) = \cap_{\mathcal{F}\in\mathcal{F}_\mathcal{C}}$. Essa é a menor $\sigma$-álgebra que contém $\mathcal{C}$. Esse conjunto as vezes também é chamado de $\sigma$-álgebra *gerada* por $\mathcal{C}$
+
+### $\sigma$-álgebra dos intervalos da reta (ou $\sigma$-álgebra de Borel)
+
+Seja $\Omega = \mathbb{R}$ e $\mathcal{C} = \{(-\infty,x]\ : \ x \in \mathcal{R}\}$. A $\sigma$-álgebra gerada por $\mathcal{C}$ é chamada de $\sigma$-álgebra de Borel e é denotada por $\mathcal{B}(\mathbb{R})$. Ela é muito importante em matemática e em estatística, por conta da sua importância para a Teoria da Medida.
+
+Essa $\sigma$-álgebra pode ser gerada por outros conjuntos, tal como $\mathcal{C}' = \{(-\infty,x) \ : \ x \in \mathbb{R}\}$. Vamos demonstrar isso provando que $\sigma(\mathcal{C}') \subset \sigma(\mathcal{C})$ e $\sigma(\mathcal{C}) \subset \sigma(\mathcal{C}')$, que é equivalente a dizer que os dois conjuntos são iguais. A primeira proposição decorre do fato de que $(-\infty, x)$ pode ser escrito como união de infinita de de conjuntos da forma $A_n = (-\infty, x-\frac{1}{n}]$. Pelas propriedades de $\sigma$-álgebra, essas uniões infinitas pertencem à $\sigma(\mathcal{C})$ e, portanto, $\mathcal{C}' \subset \sigma(\mathcal{C})$, que implica $\sigma(\mathcal{C}') \subset \sigma(\mathcal{C})$. A segunda proposição pode ser demonstrada de forma análoga, notando que $(-\infty,x] = \cap_{n=1}^\infty (-\infty,x+\frac{1}{n})$. Dessa forma, pelo resultado que demonstramos acima, tem-se que $\{(-\infty, x) \ : \ x \in \mathbb{R}\} \subset \sigma(\mathcal{C'})$, que implica que $\sigma(\mathcal{C}) \subset \sigma(\mathcal{C}')$.
+
+## Probabilidades
+
+"Probabilidade" é uma palavra que admite várias definições. A mais formal é a que vamos trabalhar neste curso: probabilidade é uma função *com propriedades especiais* que mapeia elementos de uma $\sigma$-álgebra em valores no intervalo $[0,1]$.
+
+Uma função de conjuntos $\mathbb{P}: \mathcal{F} \rightarrow \mathbb{R}_+$ é uma medida de probabilidade se
+
+1. $\mathbb{P}({\Omega}) = 1$
+1. Se $A_n \in \mathcal{F}, \ n\geq1$ for uma coleção de conjuntos disjuntos ($A_i \cap A_j, i \neq j$), então
+$$ \mathbb{P}\left(\cup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty \mathbb{P}(A_n)$$
+$$\begin{array}{|ccc|}
+\hline
+&\text{Exemplo 1:} & \Omega = \mathbb{R} & \mathcal{F} = \mathcal{B}(\mathbb{R}) \\
+ \mathbb{P}: & \mathcal{F} & \rightarrow & [0,1]\\
+ & A & \rightarrow & 1\text{ se }\omega_0 \in A\text{, 0 c.c.} \\
+ & \mathbb{P}\text{ é uma medida de probabilidade, pois: }\\
+ & COMPLETAR \\
+\hline
+\end{array}$$

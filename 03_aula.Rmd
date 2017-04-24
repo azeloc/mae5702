@@ -1,0 +1,202 @@
+# Aula 3
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE}
+exemplo <- function(numero, exemplo, justificativa, pontos){
+  header <- sprintf("\\begin{array}{|ccc|}
+  \\hline
+  &\\text{Exemplo %s:} \\
+  & %s  \\
+  & %s & \\", numero)
+  
+  corpo <- ""
+  for(i in seq_along(pontos)){
+    corpo <- paste0(corpo, " \n", sprintf("(%s)&\ %s & \\",i,pontos[i]))
+  }
+  
+  footer <- "\\hline
+  \\end{array}
+  }"
+  
+  return(paste0(header,corpo,footer))
+}
+```
+
+$$\begin{array}{|ccc|}
+\hline
+&
+\text{Exemplo 1:}
+\\
+&
+\Omega \neq \emptyset & \mathcal{A} = \{A  :  A \subset \Omega\} = \mathcal{P}(\Omega)
+\\
+&
+\mathcal{A}\text{ é um álgebra, pois:} &
+\\
+(1)&\ \Omega \subset \Omega \implies \Omega \in \mathcal{A} & \\
+(2)&\ A \in \mathcal{A} \implies A \subset \Omega &
+\implies A^c \subset \Omega \implies A^c \in \mathcal{A}  \\
+(3)&\ A,B \in \mathcal{A} \implies A,B \subset \Omega &
+\implies A \cup B \subset \Omega \implies A \cup B \in \mathcal{A}  \\
+\hline
+\end{array}$$
+
+$$\begin{array}{|ccc|}
+\hline
+&
+\text{Exemplo 1:}
+\\
+&
+\text{Seja }(\Omega, \mathcal{F})\text{ espaço mensuravel e }
+\\
+& \mathbb{P}_1\text{ e }\mathbb{P}_2\text{ medidas de probab em }(\Omega, \mathcal{F})
+\\
+\mathbb{P}: \mathcal{F} & \rightarrow & [0,1]
+\\
+A & \rightarrow  & \mathbb{P}(A) = \min\{\mathbb{P}_1(A),\mathbb{P}_2(A)\}
+\\
+&
+\mathbb{P}\text{ não é uma medida de probab, pois:} &
+\\
+& \mathbb{P}(\cup_{n\geq1})=\sum_{n\geq1}\mathbb{P}(A_n)\text{ não vale em geral.} \\
+\hline
+\end{array}$$
+
+$$\begin{array}{|ccc|}
+\hline
+&
+\text{Exemplo 2:}
+\\
+&
+\text{Sejam }\mathbb{P}\text{ uma medida de probabilidade em }(\Omega, \mathcal{F})\text{ e }
+\\
+& B \in \mathcal{F}\text{ tal que }\mathbb{P}(B)>0\text{. Defina}
+\\
+\mathbb{P}_B: \mathcal{F} & \rightarrow & [0,1]
+\\
+A & \rightarrow  & \mathbb{P}_B(A) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}
+\\
+&
+\mathbb{P}_B\text{ é uma medida de probabilidade, pois:} &
+\\
+(1) & \mathbb{P}_B(\Omega) = \frac{\mathbb{P}(\Omega \cap B)}{\mathbb{P}(B)} = \frac{\mathbb{P}(B)}{\mathbb{P}(B)} = 1 \\
+(2) & \text{Se }(A_n)_{n\geq 1}\in\mathcal{F}\text{ for uma seq. de eventos disjuntos, tem-se que} \\
+& \mathbb{P}_B(\cup_{n=1}^\infty A_n) = \frac{\mathbb{P}((\cup_{n\geq 1}A_n)\cap B)}{\mathbb{P}(B)} & = \frac{\mathbb{P}(\cup_{n\geq 1}(A_n \cap B))}{\mathbb{P}(B)} \\
+& = \sum_{n \geq 1}\frac{\mathbb{P}(A_n \cap B)}{\mathbb{P}(B)} &  \implies \mathbb{P}_B(\cup_{n \geq 1}A_n) = \sum_{n \geq 1}\mathbb{P}(A_n)\\
+\hline
+\end{array}$$
+
+## Propriedades de medidas de probabilidade
+
+1. $\mathbb{P}(\emptyset) = 0$
+
+### Demonstração
+
+Seja $A = (A_n)_{n \geq 1}$ uma sequência tal que $A_n =  \Omega$ e $(A_n)_{n \geq 2}$ é uma sequência de conjuntos vazios. Dessa forma tem-se que $A_i \cap A_j = \emptyset$ para todo $i$ e $j$, logo $A$ é uma sequência de eventos dijuntos. Além disso, $\cup_{n \geq 1} A_n = \Omega$. Juntandos esses dois fatos e a segunda propriedade de medidas de probabilidade, definida na aula 1, temos que
+
+$$ 1 = \mathbb{P}(\Omega) = \mathbb{P}(\cup_{n \geq 1}A_n) = \sum_{n \geq 1}\mathbb{P}(A_n) = \mathbb{P}(\Omega) + \sum_{n \geq 2}\mathbb{P}(\emptyset) \implies \mathbb{P}(\Omega) = 0$$
+$\blacksquare$
+
+2. Se $A = (A_i)_{n \geq i \geq 1} \in \mathcal{F}$ for uma sequência de eventos dijuntos ($A_i \cap A_j = \emptyset$ para todo $i$e $j$), tem-se que
+
+$$ \mathbb{P}(\cup_{i=1}^n A_i) = \sum_{i=1}^n \mathbb{P}(A_i)$$
+### Demonstração 
+
+Defina $B = (B_i)_{n \geq 1}$ uma sequência tal que $B_i = A_i$ se $i$ estiver entre $1$ e $n$, mas $B_i = \emptyset$ se $i > n$. Nessas condições, pela segunda propriedade de uma medida de probabilidades tem-se que
+
+$$\mathbb{P}(\cup_{i=1}^n A_n) = \mathbb{P}(\cup_{n \geq 1}B_i) = \sum_{i=1}^\infty \mathbb{P}(B_i).$$
+
+Essa soma infinita pode ser separada em duas partes:
+
+$$\sum_{i=1}^\infty\mathbb{P}(B_i) = \mathbb{P}(B_1) + ... + \mathbb{P}(B_n) + \mathbb{P}(B_{n+1}) + ...  $$
+$$ = \mathbb{P}(A_1) + ... + \mathbb{P}(A_n) + \mathbb{P}(\emptyset) + .. = \mathbb{P}(A_1) + ... + \mathbb{P}(A_n) $$
+
+$\blacksquare$
+
+3. Se $A \in \mathcal{F}$, então $\mathbb{P}(A) = 1 - \mathbb{P}(A^c)$.
+
+### Demonstração
+
+Pela definição de $\mathcal{F}$ como uma $\sigma$-álgebra, $A_1 = A, A_2 = A^c$ são elementos de $\mathcal{F}$. Disso decorre que $A_1 \cup A_2$ também é. Além disso, $\mathbb{P}(A_1 \cup A_2) = \mathbb{P}(\Omega) = 1$, mas, pela propriedade anterior, também é verdade que $\mathbb{P}(A_1 \cup A_2) = \mathbb{P}(A_1) + \mathbb{P}(A_2)$. Portanto, $\mathbb{P}(A_1) + \mathbb{P}(A_2) = 1$.
+
+$\blacksquare$
+
+4. Se $A,B \in \mathcal{F}$, $B \subset A$, então $\mathbb{P}(B) \leq \mathbb{P}(A)$
+
+### Demonstração
+
+o conjuntos $A$ pode ser representado como $A = (A \cap B)\cup(A \cap B^c)$, e os dois elementos dessa união são dijuntos. Pela propriedade 2, demonstrada acima, tem-se que
+
+$$ \mathbb{P}(A) = \mathbb{P}(A \cap B) + \mathbb{P}(A \cap B^c)$$
+
+Como $B \subset A$, então $A \cap B = B$. Portanto, $ \mathbb{P}(A) = \mathbb{P}(B) + \mathbb{P}(A \cap B^c)$ e, como a segunda parcela dessa soma é não-negativa, $\mathbb{P}(A) \geq \mathbb{P}(B)$.
+
+$\blacksquare$
+
+5. $\mathbb{P}(A) \leq 1, \forall A \in \mathcal{F}$
+
+### Demonstração
+
+Todo elemento de $A \in \mathcal{F}$ está contido em $\Omega$. Por isso, pela propriedade anterior, $\mathbb{P}(A) \leq \mathbb{P}(\Omega) = 1$.
+
+$\blacksquare$
+
+6. Para toda sequência de eventos $(A_n)_{n \geq 1} \in \mathcal{F}$ tem-se que
+
+$$ \mathbb{P}(\cup_{n=1}^\infty(A_n)) \leq \sum_{n=1}^\infty \mathbb{P}(A_n)$$.
+
+### Demonstração
+
+Defina uma nova sequência $B = (B_n)_{n \geq 1}$ da seguinte maneira:
+
+$$ B_1 = A_1,$$
+$$ B_i = (\cap_{j = 1}^{i-1} A_j^c)\cap(A_i)\text{ para } i \geq 2.$$
+
+Essa sequência é uma sequência de eventos dijuntos, pois para todo par $i,j$ há algum $k$ tal que $B_i \in A_k$ e $B_j \in A_k^c$. Além disso, $\cup_{n \geq 1} B_n =  \cup_{n \geq 1} A_n$. 
+
+Como os elementos da sequênca $B$ são dijuntos, vale que
+
+$$\mathbb{P}(\cup_{n=1}^\infty B_n) =  \sum_{i=1}^\infty \mathbb{P}(B_i) = \mathbb{P}(A_1) + \sum_{i=2}^\infty \mathbb{P}((\cap_{j = 1}^{i-1} A_j^c)\cap(A_i)).$$
+
+Para concluir a resolução, basta notar que $(\cap_{j = 1}^{i-1} A_j^c)\cap(A_i) \subset A_i$ e, pela propriedade anterior, $\mathbb{P}((\cap_{j = 1}^{i-1} A_j^c)\cap(A_i) \subset A_i) \leq \mathbb{P}(A_i)$. Com essa observação, podemos dizer que $\sum_{i=1}^\infty \mathbb{P}((\cap_{j = 1}^{i-1} A_j^c)\cap(A_i)) \leq \sum_{i=1}^\infty \mathbb{P}(A_i)$. Daí:
+
+$$\mathbb{P}(\cup_{n=1}^\infty B_n) =  \sum_{i=1}^\infty \mathbb{P}(B_i) = \mathbb{P}(A_1) + \sum_{i=2}^\infty \mathbb{P}((\cap_{j = 1}^{i-1} A_j^c)\cap(A_i)) \leq + \mathbb{P}(A_1) + \sum_{i=2}^\infty \mathbb{P}(A_i)$$
+
+$\blacksquare$
+
+7. Se $A, B \in \mathcal{F}$, então
+
+$$\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cup B)$$.
+
+### Demonstração
+
+ESCREVER A PROVA DO PRINCÍPIO DA INCLUSÃO E EXCLUSÃO
+
+$\blacksquare$
+
+8. Seja $A$ uma sequência tal que $A = (A_n)_{n \geq 1}$ tal que $A_n \subset A_{n+1}$, para todo $n$, ou $A_{n+1} \subset A_n$, para todo $n$. Então
+
+$$ \mathbb{P}(\lim_{n \rightarrow \infty} A_n) = \lim_{n \rightarrow \infty}\mathbb{P}(A_n)$$
+
+### Demonstração
+
+Vamos começar com o caso crescente. Para isso, considere a mesma sequência $B$ que foi utilizada em 6:
+
+$$ B_1 = A_1,$$
+$$ B_i = (\cap_{j = 1}^{i-1} A_j^c)\cap(A_i),\text{ para } i \geq 2.$$
+
+Como $A_j \subset A_{j+1}$, tem-se que $A_{j+1}^c \subset A_j^c$ e portanto $(\cap_{j = 1}^{i-1} A_j^c) = A_{i-1}^c$. Logo, quando $A$ é uma sequência crescente, a sequência $B$ pode ser reescrita como:
+
+$$ B_1 = A_1,$$
+$$ B_i = A_{i-1}^c\cap A_i\text{ para }, i \geq 2.$$
+
+Considerando essa discussão, podemos escrever
+
+$$ \mathbb{P}(\lim_{n \rightarrow \infty} A_n) = \mathbb{P}(\cup_{n \geq 1}A_n) = \mathbb{P}(\cup_{n \geq 1}B_n) = \sum_{n \geq 1}\mathbb{P}(B_n) = \sum_{n \geq 1}\mathbb{P}(A_i \cap A_{i-1}^c).$$
+
+O próximo passo é notar que $\mathbb{P}(A_i \cap A_{i-1}^c) = \mathbb{P}(A_i) - \mathbb{P}(A_{i-1})$. Com isso:
+
+$$ \sum_{n \geq 1}\mathbb{P}(A_i \cap A_{i-1}^c) = \lim_{n \rightarrow \infty}\sum_{i=2}^n \mathbb{P}(A_i)-\mathbb{P}(A_{i-1})$$
