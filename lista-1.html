@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Uma Introdução À Probabilidade E Inferência Estatística</title>
+  <meta name="description" content="Notas de aula da disciplina MAEXXXX - Introdução À Probabilidade E Inferência Estatística, oferecida no programa de pós-graduação em Estatística do IME-USP.">
+  <meta name="generator" content="bookdown 0.3.14 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Uma Introdução À Probabilidade E Inferência Estatística" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Notas de aula da disciplina MAEXXXX - Introdução À Probabilidade E Inferência Estatística, oferecida no programa de pós-graduação em Estatística do IME-USP." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Uma Introdução À Probabilidade E Inferência Estatística" />
+  
+  <meta name="twitter:description" content="Notas de aula da disciplina MAEXXXX - Introdução À Probabilidade E Inferência Estatística, oferecida no programa de pós-graduação em Estatística do IME-USP." />
+  
+
+<meta name="author" content="Luis Gustavo Esteves, Victor Fossaluza e Fernando Corrêa">
+
+
+<meta name="date" content="2017-04-25">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="aula-10.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">IME-USP</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preâmbulo</a></li>
+<li class="chapter" data-level="2" data-path="aula-2.html"><a href="aula-2.html"><i class="fa fa-check"></i><b>2</b> Aula 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="aula-2.html"><a href="aula-2.html#avaliacao"><i class="fa fa-check"></i><b>2.1</b> Avaliação</a></li>
+<li class="chapter" data-level="2.2" data-path="aula-2.html"><a href="aula-2.html#aula-anterior-resumo"><i class="fa fa-check"></i><b>2.2</b> Aula anterior: resumo</a></li>
+<li class="chapter" data-level="2.3" data-path="aula-2.html"><a href="aula-2.html#classes-de-subconjuntos-de-omega"><i class="fa fa-check"></i><b>2.3</b> Classes de subconjuntos de <span class="math inline">\(\Omega\)</span></a><ul>
+<li class="chapter" data-level="2.3.1" data-path="aula-2.html"><a href="aula-2.html#algebras"><i class="fa fa-check"></i><b>2.3.1</b> Álgebras</a></li>
+<li class="chapter" data-level="2.3.2" data-path="aula-2.html"><a href="aula-2.html#sigma-algebras"><i class="fa fa-check"></i><b>2.3.2</b> <span class="math inline">\(\sigma\)</span>-álgebras</a></li>
+<li class="chapter" data-level="2.3.3" data-path="aula-2.html"><a href="aula-2.html#resultado"><i class="fa fa-check"></i><b>2.3.3</b> Resultado</a></li>
+<li class="chapter" data-level="2.3.4" data-path="aula-2.html"><a href="aula-2.html#demonstracao"><i class="fa fa-check"></i><b>2.3.4</b> Demonstração</a></li>
+<li class="chapter" data-level="2.3.5" data-path="aula-2.html"><a href="aula-2.html#resultado-1"><i class="fa fa-check"></i><b>2.3.5</b> Resultado</a></li>
+<li class="chapter" data-level="2.3.6" data-path="aula-2.html"><a href="aula-2.html#demonstracao-1"><i class="fa fa-check"></i><b>2.3.6</b> Demonstração</a></li>
+<li class="chapter" data-level="2.3.7" data-path="aula-2.html"><a href="aula-2.html#sigma-algebra-dos-intervalos-da-reta-ou-sigma-algebra-de-borel"><i class="fa fa-check"></i><b>2.3.7</b> <span class="math inline">\(\sigma\)</span>-álgebra dos intervalos da reta (ou <span class="math inline">\(\sigma\)</span>-álgebra de Borel)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="aula-2.html"><a href="aula-2.html#probabilidades"><i class="fa fa-check"></i><b>2.4</b> Probabilidades</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="aula-3.html"><a href="aula-3.html"><i class="fa fa-check"></i><b>3</b> Aula 3</a><ul>
+<li class="chapter" data-level="3.1" data-path="aula-3.html"><a href="aula-3.html#propriedades-de-medidas-de-probabilidade"><i class="fa fa-check"></i><b>3.1</b> Propriedades de medidas de probabilidade</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="aula-3.html"><a href="aula-3.html#demonstracao-2"><i class="fa fa-check"></i><b>3.1.1</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.2" data-path="aula-3.html"><a href="aula-3.html#demonstracao-3"><i class="fa fa-check"></i><b>3.1.2</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.3" data-path="aula-3.html"><a href="aula-3.html#demonstracao-4"><i class="fa fa-check"></i><b>3.1.3</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.4" data-path="aula-3.html"><a href="aula-3.html#demonstracao-5"><i class="fa fa-check"></i><b>3.1.4</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.5" data-path="aula-3.html"><a href="aula-3.html#demonstracao-6"><i class="fa fa-check"></i><b>3.1.5</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.6" data-path="aula-3.html"><a href="aula-3.html#demonstracao-7"><i class="fa fa-check"></i><b>3.1.6</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.7" data-path="aula-3.html"><a href="aula-3.html#demonstracao-8"><i class="fa fa-check"></i><b>3.1.7</b> Demonstração</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="aula-4.html"><a href="aula-4.html"><i class="fa fa-check"></i><b>4</b> Aula 4</a><ul>
+<li class="chapter" data-level="4.1" data-path="aula-4.html"><a href="aula-4.html#definicao-alternativa-de-probabilidade"><i class="fa fa-check"></i><b>4.1</b> Definiçao alternativa de probabilidade</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="aula-4.html"><a href="aula-4.html#exemplo-1"><i class="fa fa-check"></i><b>4.1.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="4.1.2" data-path="aula-4.html"><a href="aula-4.html#exemplo-2"><i class="fa fa-check"></i><b>4.1.2</b> Exemplo 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="aula-4.html"><a href="aula-4.html#modelo-continuo"><i class="fa fa-check"></i><b>4.2</b> Modelo contínuo</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="aula-5.html"><a href="aula-5.html"><i class="fa fa-check"></i><b>5</b> Aula 5</a><ul>
+<li class="chapter" data-level="5.1" data-path="aula-5.html"><a href="aula-5.html#modelo-continuo-1"><i class="fa fa-check"></i><b>5.1</b> Modelo contínuo</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="aula-5.html"><a href="aula-5.html#formula-da-probabilidade-total"><i class="fa fa-check"></i><b>5.1.1</b> Fórmula da probabilidade total</a></li>
+<li class="chapter" data-level="5.1.2" data-path="aula-5.html"><a href="aula-5.html#exemplo-1-1"><i class="fa fa-check"></i><b>5.1.2</b> Exemplo 1</a></li>
+<li class="chapter" data-level="5.1.3" data-path="aula-5.html"><a href="aula-5.html#teorema-de-bayes"><i class="fa fa-check"></i><b>5.1.3</b> Teorema de Bayes</a></li>
+<li class="chapter" data-level="5.1.4" data-path="aula-5.html"><a href="aula-5.html#exemplo"><i class="fa fa-check"></i><b>5.1.4</b> Exemplo</a></li>
+<li class="chapter" data-level="5.1.5" data-path="aula-5.html"><a href="aula-5.html#exemplo-3"><i class="fa fa-check"></i><b>5.1.5</b> Exemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="aula-5.html"><a href="aula-5.html#independencia"><i class="fa fa-check"></i><b>5.2</b> Independência</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="aula-6.html"><a href="aula-6.html"><i class="fa fa-check"></i><b>6</b> Aula 6</a><ul>
+<li class="chapter" data-level="6.1" data-path="aula-6.html"><a href="aula-6.html#sub-sigma-algebras"><i class="fa fa-check"></i><b>6.1</b> Sub-<span class="math inline">\(\sigma\)</span> álgebras</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="aula-7.html"><a href="aula-7.html"><i class="fa fa-check"></i><b>7</b> Aula 7</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="aula-7.html"><a href="aula-7.html#medidas-induzidas-por-variaveis-aleatorias"><i class="fa fa-check"></i><b>7.0.1</b> Medidas induzidas por variáveis aleatórias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="aula-8.html"><a href="aula-8.html"><i class="fa fa-check"></i><b>8</b> Aula 8</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="aula-8.html"><a href="aula-8.html#vetores-aleatorios"><i class="fa fa-check"></i><b>8.0.1</b> Vetores aleatórios</a></li>
+<li class="chapter" data-level="8.0.2" data-path="aula-8.html"><a href="aula-8.html#vetores-aleatorios-discretos"><i class="fa fa-check"></i><b>8.0.2</b> Vetores aleatórios discretos</a></li>
+<li class="chapter" data-level="8.0.3" data-path="aula-8.html"><a href="aula-8.html#vetores-aleatorios-continuos"><i class="fa fa-check"></i><b>8.0.3</b> Vetores aleatórios contínuos</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="aula-9.html"><a href="aula-9.html"><i class="fa fa-check"></i><b>9</b> Aula 9</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="aula-9.html"><a href="aula-9.html#modelos-continuos"><i class="fa fa-check"></i><b>9.0.1</b> Modelos Contínuos</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="aula-10.html"><a href="aula-10.html"><i class="fa fa-check"></i><b>10</b> Aula 10</a><ul>
+<li class="chapter" data-level="10.1" data-path="aula-10.html"><a href="aula-10.html#indepencia-de-variaveis-aleatorias"><i class="fa fa-check"></i><b>10.1</b> Indepência de variáveis aleatórias</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="aula-10.html"><a href="aula-10.html#resultado-2"><i class="fa fa-check"></i><b>10.1.1</b> Resultado</a></li>
+<li class="chapter" data-level="10.1.2" data-path="aula-10.html"><a href="aula-10.html#resultado-3"><i class="fa fa-check"></i><b>10.1.2</b> Resultado</a></li>
+<li class="chapter" data-level="10.1.3" data-path="aula-10.html"><a href="aula-10.html#demonstracao-9"><i class="fa fa-check"></i><b>10.1.3</b> Demonstração</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lista-1.html"><a href="lista-1.html"><i class="fa fa-check"></i><b>11</b> Lista 1</a><ul>
+<li class="chapter" data-level="11.1" data-path="lista-1.html"><a href="lista-1.html#exercicio-1"><i class="fa fa-check"></i><b>11.1</b> Exercício 1</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="lista-1.html"><a href="lista-1.html#a"><i class="fa fa-check"></i><b>11.1.1</b> a)</a></li>
+<li class="chapter" data-level="11.1.2" data-path="lista-1.html"><a href="lista-1.html#b"><i class="fa fa-check"></i><b>11.1.2</b> b)</a></li>
+<li class="chapter" data-level="11.1.3" data-path="lista-1.html"><a href="lista-1.html#exercicio-2"><i class="fa fa-check"></i><b>11.1.3</b> Exercício 2</a></li>
+<li class="chapter" data-level="11.1.4" data-path="lista-1.html"><a href="lista-1.html#exercicio-3"><i class="fa fa-check"></i><b>11.1.4</b> Exercício 3</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="lista-1.html"><a href="lista-1.html#exercicio-4"><i class="fa fa-check"></i><b>11.2</b> Exercício 4</a></li>
+<li class="chapter" data-level="11.3" data-path="lista-1.html"><a href="lista-1.html#exercicio-5"><i class="fa fa-check"></i><b>11.3</b> Exercício 5</a></li>
+<li class="chapter" data-level="11.4" data-path="lista-1.html"><a href="lista-1.html#exercicio-6"><i class="fa fa-check"></i><b>11.4</b> Exercício 6</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="lista-1.html"><a href="lista-1.html#a-1"><i class="fa fa-check"></i><b>11.4.1</b> a)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="lista-1.html"><a href="lista-1.html#exercicio-7"><i class="fa fa-check"></i><b>11.5</b> Exercício 7</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="lista-1.html"><a href="lista-1.html#a-2"><i class="fa fa-check"></i><b>11.5.1</b> a)</a></li>
+<li class="chapter" data-level="11.5.2" data-path="lista-1.html"><a href="lista-1.html#c"><i class="fa fa-check"></i><b>11.5.2</b> c)</a></li>
+<li class="chapter" data-level="11.5.3" data-path="lista-1.html"><a href="lista-1.html#a-3"><i class="fa fa-check"></i><b>11.5.3</b> a)</a></li>
+<li class="chapter" data-level="11.5.4" data-path="lista-1.html"><a href="lista-1.html#b-1"><i class="fa fa-check"></i><b>11.5.4</b> b)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="lista-1.html"><a href="lista-1.html#exercicio-9"><i class="fa fa-check"></i><b>11.6</b> Exercício 9</a></li>
+<li class="chapter" data-level="11.7" data-path="lista-1.html"><a href="lista-1.html#exercicio-10"><i class="fa fa-check"></i><b>11.7</b> Exercício 10</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="lista-1.html"><a href="lista-1.html#a-4"><i class="fa fa-check"></i><b>11.7.1</b> a)</a></li>
+<li class="chapter" data-level="11.7.2" data-path="lista-1.html"><a href="lista-1.html#b-2"><i class="fa fa-check"></i><b>11.7.2</b> b)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="lista-1.html"><a href="lista-1.html#exercicio-11"><i class="fa fa-check"></i><b>11.8</b> Exercício 11</a></li>
+<li class="chapter" data-level="11.9" data-path="lista-1.html"><a href="lista-1.html#exercicio-12"><i class="fa fa-check"></i><b>11.9</b> Exercício 12</a></li>
+<li class="chapter" data-level="11.10" data-path="lista-1.html"><a href="lista-1.html#exercicio-13"><i class="fa fa-check"></i><b>11.10</b> Exercício 13</a></li>
+<li class="chapter" data-level="11.11" data-path="lista-1.html"><a href="lista-1.html#exercicio-14"><i class="fa fa-check"></i><b>11.11</b> Exercício 14</a></li>
+<li class="chapter" data-level="11.12" data-path="lista-1.html"><a href="lista-1.html#exercicio-15"><i class="fa fa-check"></i><b>11.12</b> Exercício 15</a></li>
+<li class="chapter" data-level="11.13" data-path="lista-1.html"><a href="lista-1.html#exercicio-16"><i class="fa fa-check"></i><b>11.13</b> Exercício 16</a><ul>
+<li class="chapter" data-level="11.13.1" data-path="lista-1.html"><a href="lista-1.html#a-5"><i class="fa fa-check"></i><b>11.13.1</b> a)</a></li>
+<li class="chapter" data-level="11.13.2" data-path="lista-1.html"><a href="lista-1.html#b-3"><i class="fa fa-check"></i><b>11.13.2</b> b)</a></li>
+<li class="chapter" data-level="11.13.3" data-path="lista-1.html"><a href="lista-1.html#c-1"><i class="fa fa-check"></i><b>11.13.3</b> c)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.14" data-path="lista-1.html"><a href="lista-1.html#exercicio-17"><i class="fa fa-check"></i><b>11.14</b> Exercício 17</a></li>
+<li class="chapter" data-level="11.15" data-path="lista-1.html"><a href="lista-1.html#exercicio-18"><i class="fa fa-check"></i><b>11.15</b> Exercício 18</a></li>
+<li class="chapter" data-level="11.16" data-path="lista-1.html"><a href="lista-1.html#exercicio-19"><i class="fa fa-check"></i><b>11.16</b> Exercício 19</a></li>
+<li class="chapter" data-level="11.17" data-path="lista-1.html"><a href="lista-1.html#exercicio-20"><i class="fa fa-check"></i><b>11.17</b> Exercício 20</a></li>
+<li class="chapter" data-level="11.18" data-path="lista-1.html"><a href="lista-1.html#exercicio-21"><i class="fa fa-check"></i><b>11.18</b> Exercício 21</a></li>
+<li class="chapter" data-level="11.19" data-path="lista-1.html"><a href="lista-1.html#exercicio-22"><i class="fa fa-check"></i><b>11.19</b> Exercício 22</a></li>
+<li class="chapter" data-level="11.20" data-path="lista-1.html"><a href="lista-1.html#exercico-1"><i class="fa fa-check"></i><b>11.20</b> Exercico 1</a></li>
+<li class="chapter" data-level="11.21" data-path="lista-1.html"><a href="lista-1.html#exercicio-2-1"><i class="fa fa-check"></i><b>11.21</b> Exercício 2</a></li>
+<li class="chapter" data-level="11.22" data-path="lista-1.html"><a href="lista-1.html#exercicio-4-1"><i class="fa fa-check"></i><b>11.22</b> Exercício 4</a><ul>
+<li class="chapter" data-level="11.22.1" data-path="lista-1.html"><a href="lista-1.html#i"><i class="fa fa-check"></i><b>11.22.1</b> i)</a></li>
+<li class="chapter" data-level="11.22.2" data-path="lista-1.html"><a href="lista-1.html#ii"><i class="fa fa-check"></i><b>11.22.2</b> ii)</a></li>
+<li class="chapter" data-level="11.22.3" data-path="lista-1.html"><a href="lista-1.html#iii"><i class="fa fa-check"></i><b>11.22.3</b> iii)</a></li>
+<li class="chapter" data-level="11.22.4" data-path="lista-1.html"><a href="lista-1.html#iv"><i class="fa fa-check"></i><b>11.22.4</b> iv)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.23" data-path="lista-1.html"><a href="lista-1.html#exercicio-5-1"><i class="fa fa-check"></i><b>11.23</b> Exercício 5</a></li>
+<li class="chapter" data-level="11.24" data-path="lista-1.html"><a href="lista-1.html#exercicio-7-1"><i class="fa fa-check"></i><b>11.24</b> Exercício 7</a></li>
+<li class="chapter" data-level="11.25" data-path="lista-1.html"><a href="lista-1.html#exercicio-8"><i class="fa fa-check"></i><b>11.25</b> Exercício 8</a><ul>
+<li class="chapter" data-level="11.25.1" data-path="lista-1.html"><a href="lista-1.html#b-4"><i class="fa fa-check"></i><b>11.25.1</b> b)</a></li>
+<li class="chapter" data-level="11.25.2" data-path="lista-1.html"><a href="lista-1.html#a-6"><i class="fa fa-check"></i><b>11.25.2</b> a)</a></li>
+<li class="chapter" data-level="11.25.3" data-path="lista-1.html"><a href="lista-1.html#c-2"><i class="fa fa-check"></i><b>11.25.3</b> c)</a></li>
+<li class="chapter" data-level="11.25.4" data-path="lista-1.html"><a href="lista-1.html#a-7"><i class="fa fa-check"></i><b>11.25.4</b> a)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.26" data-path="lista-1.html"><a href="lista-1.html#exercicio-10-1"><i class="fa fa-check"></i><b>11.26</b> Exercício 10</a></li>
+<li class="chapter" data-level="11.27" data-path="lista-1.html"><a href="lista-1.html#exercicio-12-1"><i class="fa fa-check"></i><b>11.27</b> Exercício 12</a><ul>
+<li class="chapter" data-level="11.27.1" data-path="lista-1.html"><a href="lista-1.html#a-8"><i class="fa fa-check"></i><b>11.27.1</b> a)</a></li>
+<li class="chapter" data-level="11.27.2" data-path="lista-1.html"><a href="lista-1.html#e"><i class="fa fa-check"></i><b>11.27.2</b> e)</a></li>
+<li class="chapter" data-level="11.27.3" data-path="lista-1.html"><a href="lista-1.html#f"><i class="fa fa-check"></i><b>11.27.3</b> f)</a></li>
+<li class="chapter" data-level="11.27.4" data-path="lista-1.html"><a href="lista-1.html#a-9"><i class="fa fa-check"></i><b>11.27.4</b> a)</a></li>
+<li class="chapter" data-level="11.27.5" data-path="lista-1.html"><a href="lista-1.html#b-5"><i class="fa fa-check"></i><b>11.27.5</b> b)</a></li>
+<li class="chapter" data-level="11.27.6" data-path="lista-1.html"><a href="lista-1.html#c-3"><i class="fa fa-check"></i><b>11.27.6</b> c)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.28" data-path="lista-1.html"><a href="lista-1.html#exercicio-15-1"><i class="fa fa-check"></i><b>11.28</b> Exercício 15</a></li>
+<li class="chapter" data-level="11.29" data-path="lista-1.html"><a href="lista-1.html#exercicio-16-1"><i class="fa fa-check"></i><b>11.29</b> Exercício 16</a></li>
+<li class="chapter" data-level="11.30" data-path="lista-1.html"><a href="lista-1.html#exercicio-17-1"><i class="fa fa-check"></i><b>11.30</b> Exercício 17</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uma Introdução À Probabilidade E Inferência Estatística</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lista-1" class="section level1">
+<h1><span class="header-section-number">Capítulo11</span> Lista 1</h1>
+<div id="exercicio-1" class="section level2">
+<h2><span class="header-section-number">11.1</span> Exercício 1</h2>
+<div id="a" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> a)</h3>
+<p>Seja <span class="math inline">\(A = \bigcup_{n=1}^{\infty} \left(a, b - \frac{1}{n}\right]\)</span>. Primeiro vamos mostrar que <span class="math inline">\((a,b) = A\)</span>. Isso será feito provando duas proposições:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(b - \epsilon \in A, \ \forall 0 &lt; \epsilon \leq 1\)</span></p></li>
+<li><p><span class="math inline">\(A \subset (a,b)\)</span></p></li>
+</ol>
+<p>Para verificar que as duas proposições garantem o resultado, note que (1.) é equivalente a <span class="math inline">\([b-1,b)\)</span> e, pela definição de <span class="math inline">\(A\)</span>, também é verdade que <span class="math inline">\((a, b-1) \subset A\)</span>, o que resulta em <span class="math inline">\((a,b-1] \cup (b-1,b) =(a,b) \subset A\)</span>. Como <span class="math inline">\((a,b) \subset A\)</span> e <span class="math inline">\(A \subset (a,b)\)</span>, tem-se <span class="math inline">\(A = (a,b)\)</span></p>
+<p>Seja <span class="math inline">\(A_n = \left(a, b - \frac{1}{n}\right]\)</span>. A primeira proposição é verdadeira, pois para todo <span class="math inline">\(0 &lt; \epsilon &lt; 1\)</span> existe um <span class="math inline">\(n^* \geq 1\)</span> tal que <span class="math inline">\(\frac{1}{n^*} &lt; \epsilon\)</span>. Isso implica que para todo <span class="math inline">\(\epsilon\)</span> existe um <span class="math inline">\(n^* \geq 1\)</span> tal que <span class="math inline">\(b - \epsilon &lt; b - \frac{1}{n^*}\)</span> ou, em outras palavras, que existe um <span class="math inline">\(A_{n^*}\)</span> tal que <span class="math inline">\(b-\epsilon \in A_{n^*}\)</span>. Como <span class="math inline">\(A_{n^*} \subset A\)</span>, a proposição 1. está demonstrada.</p>
+<p>Para demonstrar a segunda proposição, basta notar duas coisas:</p>
+<ol style="list-style-type: decimal">
+<li>Se <span class="math inline">\(x \leq a\)</span>, então <span class="math inline">\(x \notin A_n, \ \forall n \geq 1\)</span>, pois <span class="math inline">\(x &lt; \inf A_n = a\)</span>. Consequentemente <span class="math inline">\(x \notin A\)</span>.</li>
+<li>Se <span class="math inline">\(x \geq b\)</span>, então <span class="math inline">\(x \notin A_n, \ \forall n \geq 1\)</span>, pois <span class="math inline">\(x &gt; \sup A_n = \max A_n = b-\frac{1}{n}, \ \forall n \geq 1\)</span>. Consequentemente <span class="math inline">\(x \notin A\)</span>.</li>
+</ol>
+<p>Essas duas proposições juntas garantem que <span class="math inline">\(x \in A \implies x &gt; a \text{ e } x &lt; b\)</span>. Equivalentemente <span class="math inline">\(A \subset (a,b)\)</span>.</p>
+<p>Isso conclui a demonstração de <span class="math inline">\(A = (a,b)\)</span>. Agora vamos mostrar que <span class="math inline">\(B = \bigcup_{n=1}^{\infty} \left[a + \frac{1}{n},b\right) = (a,b)\)</span> e a demonstração será muito parecida. Novamente vamos usar duas proposições e elas serão análogas as utilizadas na demonstração anterior:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(a + \epsilon \in A, \ \forall \ 0 &lt; \epsilon \leq 1\)</span></li>
+<li><span class="math inline">\(B \subset (a,b)\)</span></li>
+</ol>
+<p>Para verificar que as duas proposições garantem o resultado, note que (1.) é equivalente a <span class="math inline">\((a,a+1]\)</span> e, pela definição de <span class="math inline">\(B\)</span>, também é verdade que <span class="math inline">\((a+1, b) \subset B\)</span>, o que resulta em <span class="math inline">\((a,a+1] \cup (a+1,b) =(a,b) \subset B\)</span>. Como <span class="math inline">\((a,b) \subset B\)</span> e <span class="math inline">\(B \subset (a,b)\)</span> (proposição 2.), tem-se <span class="math inline">\(B = (a,b)\)</span>.</p>
+<p>Seja <span class="math inline">\(B_n = \left[a + \frac{1}{n}, b\right)\)</span>. A primeira proposição é verdadeira, pois para todo <span class="math inline">\(0 &lt; \epsilon &lt; 1\)</span> existe um <span class="math inline">\(n^* \geq 1\)</span> tal que <span class="math inline">\(\frac{1}{n^*} &lt; \epsilon\)</span>. Isso implica que para todo <span class="math inline">\(\epsilon\)</span> existe um <span class="math inline">\(n^* \geq 1\)</span> tal que <span class="math inline">\(a + \epsilon &gt; a + \frac{1}{n^*}\)</span> ou, em outras palavras, que existe um <span class="math inline">\(B_{n^*}\)</span> tal que <span class="math inline">\(a+\epsilon \in B_{n^*}\)</span>. Como <span class="math inline">\(B_{n^*} \subset B\)</span>, a proposição 1. está demonstrada.</p>
+<p>Para demonstrar a segunda proposição, basta notar duas coisas:</p>
+<ol style="list-style-type: decimal">
+<li>Se <span class="math inline">\(x \leq a\)</span>, então <span class="math inline">\(x \notin B_n, \ \forall n \geq 1\)</span>, pois <span class="math inline">\(x &lt; \min B_n = a + \frac{1}{n}\)</span>. Consequentemente <span class="math inline">\(x \notin B\)</span>.</li>
+<li>Se <span class="math inline">\(x \geq b\)</span>, então <span class="math inline">\(x \notin B_n, \ \forall n \geq 1\)</span>, pois <span class="math inline">\(x \geq \sup B_n = b, \ \forall n \geq 1\)</span> e <span class="math inline">\(b \notin B_n, \ \forall \ n\geq 1\)</span>. Consequentemente <span class="math inline">\(x \notin B\)</span>.</li>
+</ol>
+<p>Essas duas proposições juntas garantem que <span class="math inline">\(x \in B \implies x &gt; a \text{ e } x &lt; b\)</span>. Equivalentemente <span class="math inline">\(B \subset (a,b)\)</span>.</p>
+</div>
+<div id="b" class="section level3">
+<h3><span class="header-section-number">11.1.2</span> b)</h3>
+<p>Seja <span class="math inline">\(A = \bigcap_{n=1}^{\infty} \left(a, b + \frac{1}{n}\right)\)</span>. Queremos mostrar que <span class="math inline">\((a,b] = A\)</span>. Isso será feito provando duas proposições:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(x &gt; b \text{ ou }x \leq a \implies x \notin A\)</span></p></li>
+<li><p><span class="math inline">\((a,b] \subset A\)</span></p></li>
+</ol>
+<p>Para verificar que as duas proposições garantem o resultado, note que (1.) é equivalente a <span class="math inline">\(x \in A \implies x \in (a,b]\)</span> (ou <span class="math inline">\(A \subset (a,b]\)</span>. Como <span class="math inline">\(A \subset (a,b]\)</span> e <span class="math inline">\((a,b] \subset A\)</span> (proposição 2.), tem-se <span class="math inline">\(A = (a,b]\)</span>.</p>
+<p>Seja <span class="math inline">\(A_n = \left(a, b + \frac{1}{n}\right)\)</span>. A primeira proposição é verdadeira, pois para todo <span class="math inline">\(0 &lt; \epsilon &lt; 1\)</span> existe um <span class="math inline">\(n^* \geq 1\)</span> tal que <span class="math inline">\(\frac{1}{n^*} &lt; \epsilon\)</span>. Isso implica que para todo <span class="math inline">\(\epsilon\)</span> existe um <span class="math inline">\(n^* \geq 1\)</span> tal que <span class="math inline">\(b + \frac{1}{n^*} &lt; b + \epsilon\)</span> ou, em outras palavras, que existe um <span class="math inline">\(A_{n^*}\)</span> tal que <span class="math inline">\(b+\epsilon \notin A_{n^*}\)</span>. Como <span class="math inline">\(A \subset A_{n^*}\)</span>, a proposição 1. está demonstrada.</p>
+<p>Para demonstrar a segunda proposição basta notar que <span class="math inline">\((a,b] \subset A_n, \ \forall \ n \geq 1\)</span>.</p>
+</div>
+<div id="exercicio-2" class="section level3">
+<h3><span class="header-section-number">11.1.3</span> Exercício 2</h3>
+<p>Pelas definições usuais <span class="math inline">\(\bar{A} = \lim \sup A_i = \cap_{i=1}^\infty \cup_{k=i}^{\infty} A_k\)</span> e <span class="math inline">\(A = \lim \inf \cup_{i=1}^\infty \cap_{k=i}^\infty A_k\)</span>. A demonstração de que <span class="math inline">\(\bar{A}\)</span> e <span class="math inline">\(A\)</span> são elementos de <span class="math inline">\(\mathcal{F}\)</span> pode ser feita em dois passos:</p>
+<ol style="list-style-type: decimal">
+<li>Como <span class="math inline">\(A_i \in \mathcal{F}, \ \forall \ i \geq 1\)</span>, tem-se que interssecções infinitas e uniões infinitas de conjuntos <span class="math inline">\(A_i\)</span> também pertencem à <span class="math inline">\(\mathcal{F}\)</span>. Dessa forma, os conjuntos <span class="math inline">\(B_i \cup_{k=i}^\infty A_i\)</span> e <span class="math inline">\(C_i = \cap_{k=i}^\infty A_i\)</span> percentem à <span class="math inline">\(\mathcal{F}\)</span> para todo <span class="math inline">\(i \geq 1\)</span>.</li>
+<li>Como <span class="math inline">\(B_i, C_i \in \mathcal{F}, \ \forall \ i \geq 1\)</span>, tem-se que interssecções infinitas e uniões infinitas de conPajuntos <span class="math inline">\(B_i\)</span> (ou <span class="math inline">\(C_i\)</span>) também pertencem à <span class="math inline">\(\mathcal{F}\)</span>. Como os conjuntos <span class="math inline">\(\bar{A}\)</span> e <span class="math inline">\(A\)</span> podem ser descritos como uniões e intersecções inifitas de <span class="math inline">\(B_i\)</span>’s e <span class="math inline">\(C_i\)</span>’s (respectivamente), então <span class="math inline">\(\bar{A} \in \mathcal{F}\)</span> e <span class="math inline">\(A \in \mathcal{F}\)</span>.</li>
+</ol>
+<p>A parta da demonstração que compete <span class="math inline">\(\lim_n A_n\)</span> já está demonstrada, pois esse conjunto é definido apenas no caso em que <span class="math inline">\(\bar{A} = A\)</span>. Quando essa igualdade valer, pela demonstração anterior é evidente que <span class="math inline">\(\lim_n A_n \in \mathcal{F}\)</span>.</p>
+</div>
+<div id="exercicio-3" class="section level3">
+<h3><span class="header-section-number">11.1.4</span> Exercício 3</h3>
+<p>Seja <span class="math inline">\(\{A_i\}_{i \geq 1}\)</span> uma sequência tal que <span class="math inline">\(A_{2n} = B\)</span> e <span class="math inline">\(A_{2n-1} = A\)</span>. Nessas considções, tem-se que</p>
+<p><span class="math display">\[\lim \inf A_n = \bigcup_{i=1}^\infty \bigcap_{k=i}^\infty A_k = (B \cap A \cap B \cap ...) \cup (B \cap A \cap B ...)\cup... = A \cap B\]</span></p>
+<p><span class="math display">\[\lim \sup A_n = \bigcap_{i=1}^\infty \bigcup_{k=i}^\infty A_k = (B \cup A \cup B \cup ...) \cap (B \cup A \cup B ...)\cap... = A \cup B\]</span></p>
+</div>
+</div>
+<div id="exercicio-4" class="section level2">
+<h2><span class="header-section-number">11.2</span> Exercício 4</h2>
+<p>Primeiramente note que <span class="math inline">\(A_n\)</span> e <span class="math inline">\(B_n\)</span> são intervalos abertos na reta, então para mostrar que <span class="math inline">\(I_1 = (a_1, b_1) \subset I_2 = (a_2, b_2)\)</span> basta mostrar que <span class="math inline">\(a_2 &lt; a_1\)</span> e <span class="math inline">\(b_1 &lt; b_2\)</span> (e vice-versa).</p>
+<p>Para mostrar que <span class="math inline">\(A_n\)</span> é não decrescente, vamos mostrar que <span class="math inline">\(A_n\)</span> é crescente (portanto não decrescente):</p>
+<p><span class="math display">\[\frac{1}{n+1} &lt; \frac{1}{n} \implies -5 + \frac{1}{n+1} &lt; -5 + \frac{1}{n}\]</span> <span class="math display">\[\frac{1}{n+1} &lt; \frac{1}{n} \implies -\frac{1}{n+1} &gt; -\frac{1}{n}\implies 20 - \frac{1}{n} &lt; 20 - \frac{1}{n+1}\]</span></p>
+<p>Pelo que foi dito na primeira linha desta resolução e fazendo <span class="math inline">\(a_1 = -5 + \frac{1}{n+1}\)</span>, <span class="math inline">\(a_2 = -5 + \frac{1}{n+1}\)</span>, <span class="math inline">\(b_1 = 20 - \frac{1}{n}\)</span>, <span class="math inline">\(b_2 = 20 - \frac{1}{n+1}\)</span> as proposições acima implicam que:</p>
+<p><span class="math display">\[\left(-5 + \frac{1}{n}, 20 - \frac{1}{n}\right) \subset \left(-5 + \frac{1}{n+1}, 20 - \frac{1}{n+1}\right) \implies A_n \subset A_{n+1}.\]</span></p>
+<p>Isso conclui a demonstração de que <span class="math inline">\(A_n\)</span> é crescente.</p>
+<p>Para mostrar que <span class="math inline">\(B_n\)</span> é não crescente, vamos mostrar que <span class="math inline">\(B_n\)</span> é decrescente (portanto não crescente):</p>
+<p><span class="math display">\[\frac{3}{n+1} &lt; \frac{3}{n} \implies 7 + \frac{3}{n+1} &lt; 7 + \frac{3}{n}\]</span></p>
+<p>Pelo que foi dito na primeira linha desta resolução e fazendo <span class="math inline">\(a_1 = a_2 = 0\)</span>, <span class="math inline">\(b_1 = 7 + \frac{3}{n}\)</span>, <span class="math inline">\(b_2 = 7 + \frac{3}{n+1}\)</span> a proposição acima implica que:</p>
+<p><span class="math display">\[\left(0, 7 + \frac{3}{n+1}\right) \subset \left(0, 7 + \frac{3}{n}\right) \implies B_{n+1} \subset B_n\]</span></p>
+<p>Para obter os limites das sequências, basta notar que, nos casos em que as sequências são monótonas, os limites são definidos como as uniões infinitas (caso não decrescente) ou intersecções infinitas (caso não crescente) dos conjuntos.</p>
+<p>Dessa forma, temos que <span class="math inline">\(\cap_n^\infty B_n = (0,7)\)</span>, pois para todo <span class="math inline">\(7 + \epsilon, \epsilon &gt; 0\)</span> existirá um <span class="math inline">\(B_n\)</span> que não contém esse número, mas o intervalo <span class="math inline">\((0,7)\)</span> está contido em todos os <span class="math inline">\(B_n\)</span>. Para o limite de <span class="math inline">\(A_n\)</span>, temos que que <span class="math inline">\(\cup_n^\infty A_n = (-5,20)\)</span>, pois todos os números <span class="math inline">\(-5 + \epsilon\)</span> e <span class="math inline">\(20 - \epsilon\)</span>, <span class="math inline">\(0 &lt; \epsilon &lt; 1\)</span>, percentem a algum conjunto <span class="math inline">\(A_n\)</span>.</p>
+</div>
+<div id="exercicio-5" class="section level2">
+<h2><span class="header-section-number">11.3</span> Exercício 5</h2>
+<p>Generalizando o que foi discutido no exercício anterior, podemos dizer que um intervalo no <span class="math inline">\(\mathbb{R}^2\)</span> é um conjunto formado pelo produto cartesiano de dois intervalos na reta. Com essa definição, o critério de inclusão de dois intervalos da reta pode ser generalizado da seguinte forma: <span class="math inline">\(I_1 = (x^-_1,x^+_1)\times(y_1^-,y^+_1) \subset I_2 = (x^-_2,x^+_2)\times(y_2^-,y^+_2)\)</span> se <span class="math inline">\(x^-_2 &lt;= x^-_1\)</span> e <span class="math inline">\(x^+_1 &lt;= x^+_2\)</span> e <span class="math inline">\(y^-_2 &lt;= y^-_1\)</span> e <span class="math inline">\(y^+_1 &lt;= y^+_2\)</span>, onde em pelo menos em uma dessas desigualdades vale a desigualdade estrita.</p>
+<p>Usando essa ideia, podemos mostrar que <span class="math inline">\(A_n\)</span> é uma sequência crescente. Para isso, tome <span class="math inline">\(x_n^- = 3 + 1/n\)</span>, <span class="math inline">\(x_n^+ = 6 - 2/n\)</span>, <span class="math inline">\(y_n^- = 0\)</span>, <span class="math inline">\(y_n^+ = 2 - 1/n^2\)</span> e note que</p>
+<p><span class="math display">\[x_{n+1}^- &lt; x_{n}^-, \ \forall \ n \geq 1\]</span> <span class="math display">\[x_{n}^+ &lt; x_{n+1}^+, \ \forall \ n \geq 1\]</span> <span class="math display">\[y_{n+1}^- = y_{n}^-, \ \forall \ n \geq 1\]</span> <span class="math display">\[y_{n}^+ &lt; y_{n+1}^+, \ \forall \ n \geq 1\]</span> Com isso, temos que</p>
+<p><span class="math display">\[A_n = (x_n^-, x_{n}^+)\times(y_n^-, y_{n}^+) \subset A_{n+1} = (x_{n+1}^-, x_{n+1}^+)\times(y_{n+1}^-, y_{n+1}^+), \ \forall \ n \geq 1\]</span> Como em <span class="math inline">\(A_n\)</span> é possível encontrar pontos com cordenadas tão próximas dos limites das sequências <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> quanto se queira, vale que o limite de <span class="math inline">\(A\)</span> é o conjunto <span class="math inline">\((3,6)\times(0,2)\)</span>.</p>
+<p>Para obter o limite da sequência <span class="math inline">\(B_n\)</span>, note que <span class="math inline">\(B_{n+1} \subset B_n\)</span>, pois <span class="math inline">\(B_{n+1}\)</span> é uma bola de raio menor do que o raio da bola <span class="math inline">\(B_n\)</span> e as duas tem o mesmo centro. Por isso, essa sequência de bolas é decrescente e o seu limite pode ser obtido tomando a intersecção de todos os elementos da sequência, que corresponde ao centro das bolas, o ponto <span class="math inline">\((0,0)\)</span>.</p>
+</div>
+<div id="exercicio-6" class="section level2">
+<h2><span class="header-section-number">11.4</span> Exercício 6</h2>
+<div id="a-1" class="section level3">
+<h3><span class="header-section-number">11.4.1</span> a)</h3>
+<p><span class="math display">\[\lim \sup A_n = \bigcap_i \bigcup_{k \geq i} \{(-1)^k\} = \{-1,1\}\]</span> <span class="math display">\[\lim \inf A_n = \bigcup_i \bigcap_{k \geq i} \{(-1)^k\} = \emptyset\]</span> ### b)</p>
+<p><span class="math display">\[\lim \sup A_n = \bigcap_i \bigcup_{k \geq i} A_n = \mathbb{R}\]</span> <span class="math display">\[\lim \inf A_n = \bigcup_i \bigcap_{k \geq i} A_n = \{0\} \]</span> ### c)</p>
+<p>Essa resolução vai partir da <em>intuição</em> de que o limite desta sequência é a bola aberta centrada em <span class="math inline">\((0,0)\)</span> e com raio <span class="math inline">\(1\)</span>, denotada <span class="math inline">\(B_1(0)\)</span>. Com isso em mente, vamos de fato provar as seguintes proposições:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\ p \in B_1(0) \implies p \in \lim \sup A_n\)</span></li>
+<li><span class="math inline">\(\ p \in B_1(0) \implies p \in \lim \inf A_n\)</span></li>
+<li><span class="math inline">\(\ p \notin B_1(0) \implies p \notin \lim \sup A_n\)</span></li>
+<li><span class="math inline">\(\ p \notin B_1(0) \implies p \notin \lim \inf A_n\)</span></li>
+</ol>
+<p>Embora alguns pares de proposições possam ser agrupados em frases mais simples (como por exemplo a união de 3. e 1. significar <span class="math inline">\(\lim \sup A_n = B_1(0)\)</span>), não simplificaremos as expressões em prol da clareza da resolução.</p>
+<p>Nas demonstrações das proposições 1 a 4 vamos nos aproveitar de duas interpretações especiais dos conjuntos <span class="math inline">\(\lim \sup A_n\)</span> e <span class="math inline">\(\lim \in A_n\)</span>. Pela fórmula <span class="math inline">\(\lim \sup A_n = \cap_i \cup_{k \geq i} A_k\)</span> podemos identificar que esse conjunto é composto por todos os elementos que pertencem a união de todos os <span class="math inline">\(A_i\)</span> a menos de um conjunto finito de <span class="math inline">\(A_i\)</span>. Lendo essa frase de outra forma (uma forma muito mais simples, na verdade), percebe-se que o <span class="math inline">\(\lim \sup A_n\)</span> consiste no conjunto de todos os elementos que aparecem em infitos <span class="math inline">\(A_i\)</span>’s. Interpretando <span class="math inline">\(\lim \inf A_n = \cup_i \cap_{k \geq i} A_k\)</span> analogamente, identifica-se que esse conjunto é formado por todos os elementos que pertencem a todos os <span class="math inline">\(A_i\)</span> a partir de um certo índice específico.</p>
+<p>Essas interpretações permitem reescrever as proposições 1-4 de maneira mais simples e que facilitarão a sua demonstração.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\ p \in B_1(0) \implies p \text{ pertence a infinitos }A_n\)</span></li>
+<li><span class="math inline">\(\ p \in B_1(0) \implies p \text{ está em todos }A_n\text{ a partir de um certo }n^*\)</span></li>
+<li><span class="math inline">\(\ p \notin B_1(0) \implies p \text{ pertence apenas a um número finito de }A_n\)</span></li>
+<li><span class="math inline">\(\ p \notin B_1(0) \implies \text{ existem infitos }A_n\text{ tal que }p\text{ não pertence a }A_n\)</span></li>
+</ol>
+<p>A demonstração de 1. pode ser feita da seguinte forma:</p>
+<p>Primeiro note que <span class="math inline">\(p \in B_1(0) \implies p_1^2 + p_2^2 = \epsilon, \ \epsilon \in (0,1)\)</span> e que os pontos de <span class="math inline">\(A_{2n-1}, n \geq 1\)</span> satisfazem</p>
+<p><span class="math display">\[ x^2 + \frac{x}{2n-1} + \frac{1}{(2n-1)^2} + y^2 \leq 1, \ x,y \in \mathbb{R}^2.\]</span> Para concluir a demonstração, perceba que <span class="math inline">\(\frac{1}{2n-1} + \frac{1}{(2n-1)^2}\)</span> é uma sequência convergente a <span class="math inline">\(0\)</span> e portanto para <span class="math inline">\(n &gt; n_\gamma\)</span> tem-se <span class="math inline">\(\frac{p_1}{2n-1} + \frac{1}{(2n-1)^2} &lt; \gamma, \ \forall \gamma \in (0,1)\)</span>. Dessa forma, basta tomar <span class="math inline">\(n &gt; n_{1-\epsilon}\)</span>, que é possível já que <span class="math inline">\(\epsilon \in (0,1)\)</span>, para que <span class="math inline">\(\frac{1}{2n-1} + \frac{1}{(2n-1)^2} &lt; 1-\epsilon\)</span> e dessa forma a inequação</p>
+<p><span class="math display">\[p_1^2 + \frac{p_1}{2n-1} + \frac{1}{(2n-1)^2} + p_2^2 = \epsilon + \frac{1}{2n-1} + \frac{1}{(2n-1)^2} \leq 1-\epsilon + \epsilon = 1\]</span> será verdadeira. Concluindo: todo ponto da bola aberta <span class="math inline">\(B_1(0)\)</span> percente a todos os <span class="math inline">\(A_n\)</span> de índice ímpar a partir de um certo <span class="math inline">\(2n_\gamma-1\)</span> e a proposião 1. está demonstrada.</p>
+<p>A demonstração de 2. pode ser feita da seguinte forma:</p>
+<p>Novamente vamos usar que <span class="math inline">\(p \in B_1(0) \implies p_1^2 + p_2^2 = \epsilon, \ \epsilon \in (0,1)\)</span>, mas dessa vez também vamos olhar pros <span class="math inline">\(A_k\)</span> com índice par (denotados <span class="math inline">\(A_{2n}, n \geq 1\)</span>), pois precisamos garantir que <span class="math inline">\(p\)</span> pertence a todos esses conjuntos a partir de um certo índice. Os elementos de <span class="math inline">\(A_{2n}\)</span> satisfazem</p>
+<p><span class="math display">\[ x^2 + \frac{1}{(2n)^2} - \frac{x}{2n} + y^2 \leq 1, \ x,y \in \mathbb{R}^2.\]</span></p>
+<p>Analisando essa desigualdade para <span class="math inline">\(x = p_1\)</span> e <span class="math inline">\(y = p_2\)</span> teremos</p>
+<p><span class="math display">\[p_1^2 + \frac{1}{4n^2}-\frac{p_1}{2n} + p_2^2 \leq \epsilon + \frac{1}{4n^2}+\frac{|p_1|}{2n}.\]</span> Portanto, para concluir a demonstração outra vez vamos procurar um majorante para uma sequência convergente a 0: para todo <span class="math inline">\(n &gt; n_\gamma, \ \gamma \in (0,1)\)</span> tem-se <span class="math inline">\(\frac{1}{4n^2}+\frac{|p_1|}{2n} &lt; \gamma\)</span>. Tomando <span class="math inline">\(\gamma = 1-\epsilon\)</span> a última inequação fica:</p>
+<p><span class="math display">\[p_1^2 + \frac{1}{4n^2}-\frac{p_1}{2n} + p_2^2 \leq \epsilon + \frac{1}{4n^2}+\frac{|p_1|}{2n} \leq \epsilon + \gamma \leq 1.\]</span> Por conta da última argumentação, temos que todos os pontos da bola aberta de raio 1 pertencem a todos os <span class="math inline">\(A_n\)</span> de índice ímpar a partir de um certo índice, mas pela demonstração anterior também sabemos que todos os pontos da bola aberta de raio 1 percentem a todos os <span class="math inline">\(A_n\)</span> de índice par a partir de um certo índice. Isso significa que existe um índice tal que todos os pontos da bola aberta de raio 1 percentem a todos os <span class="math inline">\(A_n\)</span>.</p>
+<p>Para finalizar a resolução, vamos demonstrar apenas a proposição 3, que já garante a proposição 4. Tome <span class="math inline">\(p\)</span> tal que <span class="math inline">\(p_1^2 + p_2^2 = c \geq 1\)</span>. Então tem-se que <span class="math inline">\(p\)</span> não pertence a nenhum <span class="math inline">\(A_n\)</span> de índice ímpar, pois</p>
+<p><span class="math display">\[p_1^2 + \frac{p_1}{2n-1} + \frac{1}{(2n-1)^2} + p_2^2 \geq p_1^2 + p_2^2 - \frac{|p_1|}{2n-1} \geq c - \frac{|p_1|}{2n-1}.\]</span></p>
+<p>Como <span class="math inline">\(-\frac{|p_1|}{2n-1}\)</span> converge a 0 pela esquerda, existe um <span class="math inline">\(n &gt; n_\gamma, \ \gamma \in (0,1)\)</span> tal que <span class="math inline">\(-\frac{|p_1|}{2n-1} &gt; \gamma\)</span>. Tomando <span class="math inline">\(\gamma = \frac{1-c}{2}\)</span> teremos:</p>
+<p><span class="math display">\[p_1^2 + \frac{p_1}{2n-1} + \frac{1}{(2n-1)^2} + p_2^2 \geq p_1^2 + p_2^2 - \frac{|p_1|}{2n-1} \geq c - \frac{|p_1|}{2n-1} \geq \frac{2c  + 1 - c}{2} = \frac{c+1}{2} &gt; 1.\]</span> Em outros termos, toda vez que <span class="math inline">\(n\)</span> for maior do que o <span class="math inline">\(n_\gamma\)</span> supracitado teremos que a <span class="math inline">\(p\)</span> não percente a <span class="math inline">\(A_n\)</span> de índice ímpar. Como essa mesma demonstração também vale para os <span class="math inline">\(A_n\)</span> de índice par, a resolução está concluída.</p>
+</div>
+</div>
+<div id="exercicio-7" class="section level2">
+<h2><span class="header-section-number">11.5</span> Exercício 7</h2>
+<div id="a-2" class="section level3">
+<h3><span class="header-section-number">11.5.1</span> a)</h3>
+<p>Primeiro note que</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{i=1}^n A_i\right) = \mathbb{P}\left(\left(\bigcup_{i=1}^n A_i^c\right)^c\right) = 1-\mathbb{P}\left(\bigcup_{i=1}^n A_i^c\right).\]</span> Agora, como <span class="math inline">\(\mathbb{P}\left(\bigcup_{i=1}^n A_i^c\right) \leq \sum_{i=1}^n \mathbb{P}(A_i^c)\)</span>, tem-se <span class="math inline">\(-\mathbb{P}\left(\bigcup_{i=1}^n A_i^c\right) \geq -\sum_{i=1}^n \mathbb{P}(A_i^c)\)</span> e consequentemente:</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{i=1}^n A_i\right) = \mathbb{P}\left(\left(\bigcup_{i=1}^n A_i^c\right)^c\right) = 1-\mathbb{P}\left(\bigcup_{i=1}^n A_i^c\right) \geq 1 - \sum_{i=1}^n\mathbb{P}(A_i^c)\]</span> ### b)</p>
+<p>Primeiro note que <span class="math inline">\(\mathbb{P}(A_k) \geq 1-\epsilon \implies 1-\mathbb{P}(A_k^c) \geq 1-\epsilon \implies -\mathbb{P}(A_k^c) \geq -\epsilon\)</span>. Por conta disso a última inequação do item anterior pode ser reescrita da seguinte forma:</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{i=1}^n A_i\right) = \mathbb{P}\left(\left(\bigcup_{i=1}^n A_i^c\right)^c\right) = 1-\mathbb{P}\left(\bigcup_{i=1}^n A_i^c\right) \geq 1 - \sum_{i=1}^n\mathbb{P}(A_i^c) \geq 1 - \sum_{i=1}^n \epsilon = 1-n\epsilon\]</span></p>
+</div>
+<div id="c" class="section level3">
+<h3><span class="header-section-number">11.5.2</span> c)</h3>
+<p>Primeiro note que</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{i=1}^\infty A_i\right) = \mathbb{P}\left(\left(\bigcup_{i=1}^\infty A_i^c\right)^c\right) = 1-\mathbb{P}\left(\bigcup_{i=1}^\infty A_i^c\right).\]</span></p>
+<p>Agora, como pela <span class="math inline">\(\sigma\)</span>-aditividade de <span class="math inline">\(\mathbb{P}\)</span> tem-se que <span class="math inline">\(\mathbb{P}\left(\bigcup_{i=1}^\infty A_i^c\right) \leq \sum_{i=1}^\infty \mathbb{P}(A_i^c)\)</span>, tem-se <span class="math inline">\(-\mathbb{P}\left(\bigcup_{i=1}^\infty A_i^c\right) \geq -\sum_{i=1}^\infty \mathbb{P}(A_i^c)\)</span> e consequentemente:</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{i=1}^\infty A_i\right) = \mathbb{P}\left(\left(\bigcup_{i=1}^\infty A_i^c\right)^c\right) = 1-\mathbb{P}\left(\bigcup_{i=1}^\infty A_i^c\right) \geq 1 - \sum_{i=1}^\infty\mathbb{P}(A_i^c)\]</span> ## Exercício 8</p>
+</div>
+<div id="a-3" class="section level3">
+<h3><span class="header-section-number">11.5.3</span> a)</h3>
+<p>Pela <span class="math inline">\(\sigma\)</span>-aditividade de <span class="math inline">\(\mathbb{P}\)</span> tem-se que <span class="math inline">\(\mathbb{P}\left(\bigcup_{i=1}^\infty A_i\right) \leq \sum_{i=1}^\infty \mathbb{P}(A_i)\)</span>. Como <span class="math inline">\(\mathbb{P}(A_i) = 0\)</span> para todo <span class="math inline">\(i\)</span>, é verdade que <span class="math inline">\(\mathbb{P}\left(\bigcup_{i=1}^\infty A_i\right) \leq 0\)</span>. Como as medidas de probabilidade satisfazem <span class="math inline">\(\mathbb{P}(A) \geq 0\)</span>, tem-se que <span class="math inline">\(\mathbb{P}\left(\bigcup_{i=1}^\infty A_i\right) = 0\)</span>.</p>
+</div>
+<div id="b-1" class="section level3">
+<h3><span class="header-section-number">11.5.4</span> b)</h3>
+<p>Pela Lei de Moore e pela <span class="math inline">\(\sigma\)</span>-aditividade <span class="math inline">\(\mathbb{P}\)</span> temos que <span class="math inline">\(\mathbb{P}\left(\bigcap_{i=1}^\infty A_i\right) = 1-\mathbb{P}(\bigcup_i^\infty A_i^c) \geq 1 - \sum_{i=1}^\infty \mathbb{P}(A_i^c)\)</span>. Como <span class="math inline">\(\mathbb{P}(A_i^c) = 1-\mathbb{P}(A_i) = 0\)</span>, a última inequação fica <span class="math inline">\(\mathbb{P}\left(\bigcap_{i=1}^\infty A_i\right) = 1-\mathbb{P}(\bigcup_i^\infty A_i^c) \geq 1 - \sum_{i=1}^\infty \mathbb{P}(A_i^c) \geq 1\)</span>.</p>
+</div>
+</div>
+<div id="exercicio-9" class="section level2">
+<h2><span class="header-section-number">11.6</span> Exercício 9</h2>
+<p>Vamos começar provando que <span class="math inline">\(\mathbb{P}(A_n \cup B_n) \rightarrow 1\)</span>. Essa proposição é verdadeira pois <span class="math inline">\(1 \geq \mathbb{P}(A_n \cup B_n) \geq \mathbb{P}(A_n)\)</span> e o limitante inferior dessa desiguldade converge à 1.</p>
+<p>Agora, pelo princípio de inclusão e exclusão, tem-se que <span class="math inline">\(\mathbb{P}(A_n \cap B_n) = \mathbb{P}(A_n) + \mathbb{P}(B_n) - \mathbb{P}(A_n \cup B_n)\)</span>. Tomando o limite dos dois lados tem-se que <span class="math inline">\(\lim \mathbb{P}(A_n \cap B_n) = \lim \mathbb{P}(A_n) + \lim \mathbb{P}(B_n) - \lim \mathbb{P}(A_n \cup B_n) = 1 + p -1 = p\)</span>.</p>
+</div>
+<div id="exercicio-10" class="section level2">
+<h2><span class="header-section-number">11.7</span> Exercício 10</h2>
+<div id="a-4" class="section level3">
+<h3><span class="header-section-number">11.7.1</span> a)</h3>
+<p><span class="math inline">\(\mathcal{A}\)</span> é uma <span class="math inline">\(\sigma\)</span>-álgebra com relação de subconjuntos de <span class="math inline">\(\Omega\)</span>: o complementar de <span class="math inline">\(\emptyset\)</span> é <span class="math inline">\(\Omega\)</span>, que pertence à <span class="math inline">\(\mathcal{A}\)</span>. O complementar de <span class="math inline">\(\{1\}\)</span> é <span class="math inline">\(\{2,3,4\}\)</span>, que pertence à <span class="math inline">\(\mathcal{A}\)</span>. O complementar de <span class="math inline">\(\{2\}\)</span> é <span class="math inline">\(\{1,3,4\}\)</span>, que pertence à <span class="math inline">\(\mathcal{A}\)</span>. A união de <span class="math inline">\(\{1\}\)</span> e <span class="math inline">\(\{2\}\)</span> é <span class="math inline">\(\{1,2\}\)</span>, que pertence à <span class="math inline">\(\mathcal{A}\)</span>. O complementar de <span class="math inline">\(\{1,2\}\)</span> é <span class="math inline">\(\{3,4\}\)</span>, que pertence à <span class="math inline">\(\mathcal{A}\)</span>. Não existem novos conjuntos que precisam de avaliação.</p>
+</div>
+<div id="b-2" class="section level3">
+<h3><span class="header-section-number">11.7.2</span> b)</h3>
+<p><span class="math inline">\(\mathcal{B}\)</span> não é uma <span class="math inline">\(\sigma\)</span>-álgebra. <span class="math inline">\(\{1\}\)</span> e <span class="math inline">\(\{2\}\)</span> são elementos de <span class="math inline">\(\mathcal{B}\)</span>, mas a sua união não é.</p>
+</div>
+</div>
+<div id="exercicio-11" class="section level2">
+<h2><span class="header-section-number">11.8</span> Exercício 11</h2>
+<p>Quando <span class="math inline">\(B_n\)</span> é uma sequência não crescente de eventos sabemos que <span class="math inline">\(\mathbb{P}(\lim B_n) = \lim \mathbb{P}(B_n)\)</span>. Por isso, o fato de <span class="math inline">\(\sup_k A_i = \cup_{i \geq k} A_i\)</span> ser uma sequência não crescente garante que <span class="math inline">\(\mathbb{P}(\lim \sup_k A_i) = \lim \mathbb{P}(\sup_k A_i)\)</span>. Como <span class="math inline">\(\mathbb{P}(A_i)\)</span> é maior que <span class="math inline">\(c\)</span> para todo <span class="math inline">\(i\)</span>, <span class="math inline">\(\mathbb{P}(\sup_k A_i)\)</span> também é (<span class="math inline">\(\mathbb{P}(\bigcup_{i \geq k} A_i) \geq \mathbb{P}(A_k) \geq c\)</span>) e consequentemente <span class="math inline">\(\lim \mathbb{P}(\sup_k A_i) \geq c\)</span>.</p>
+</div>
+<div id="exercicio-12" class="section level2">
+<h2><span class="header-section-number">11.9</span> Exercício 12</h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\emptyset \text{ é enumerável} \implies \emptyset^c = \Omega \in \mathcal{F}\)</span></li>
+<li><span class="math inline">\(A \in \mathcal{F} \implies A \text{ é enumerável ou }A^c\text{ é enumerável} \implies (A^c)^c \text{ é enumerável ou }A^c\text{ é enumerável} \implies A^c \in \mathcal{F}\)</span></li>
+<li>Se <span class="math inline">\(A_i \in \mathcal{F}, \ i \geq 1\)</span>, então ou todos esses conjuntos são enumeráveis ou existe pelo menos um <span class="math inline">\(A_{i^*}\)</span> não-enumerável com <span class="math inline">\(A_{i^*}^c\)</span> enumerável. Nesse último caso, <span class="math inline">\(\cap A_i^c\)</span> é enumerável pois é um subconjunto <span class="math inline">\(A_{i^*}^c\)</span>, que é enumerável. No caso em que todos os <span class="math inline">\(A_i\)</span> são enumeráveis, é verdade que <span class="math inline">\(\cup A_i\)</span> é enumerável, pois existe uma coleção enumerável de funções bijetoras <span class="math inline">\(f_i:A_i \rightarrow \mathbb{N}\)</span> que dá origem à função <span class="math inline">\(f(j-\text{ésimo elemento de }A_i) = f(a_{ij}) = (i, f_i(a_{ij}))\)</span>. Como <span class="math inline">\(f\)</span> é uma bijeção de <span class="math inline">\(\cup A_i\)</span> em <span class="math inline">\(\mathbb{N}^2\)</span>, basta encontrar uma bijeção de <span class="math inline">\(\mathbb{N}^2\)</span> em <span class="math inline">\(\mathbb{N}\)</span> para concluir que <span class="math inline">\(\cup A_i\)</span> é enumerável. Isso pode ser feito com o mapeamento de <span class="math inline">\(\mathbb{N}^2\)</span> em <span class="math inline">\(\mathbb{N}\)</span> sendo <span class="math inline">\(f(i,j) = 2^i(2f_i(a_{ji})+1)-1\)</span>.</li>
+</ol>
+</div>
+<div id="exercicio-13" class="section level2">
+<h2><span class="header-section-number">11.10</span> Exercício 13</h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(B \in \mathcal{F}_B\)</span>, pois <span class="math inline">\(B = B \cap B\)</span> e <span class="math inline">\(B \in \mathcal{F}_{\Omega}\)</span>.</li>
+<li>Se <span class="math inline">\(C \in \mathcal{F}_B\)</span>, então <span class="math inline">\(C^c \in \mathcal{F}_B\)</span>. Isso vale porque <span class="math inline">\(C \in \mathcal{F}_B \implies \exists A \in \mathcal{F}_\Omega: C = A \cap B \implies A^c \cap B \in \mathcal{F}_B\)</span>.</li>
+<li><span class="math inline">\(C_i \in \mathcal{F}_B, \ \forall i \geq 1 \implies \exists A_i \in \mathcal{F}_\Omega, \ i \geq 1: C_i = A_i \cap B \implies \cup A_i \in \mathcal{F}_\Omega \implies C = \cup A_i \cap B = \cup C_i \in \mathcal{F}_B\)</span>.</li>
+</ol>
+</div>
+<div id="exercicio-14" class="section level2">
+<h2><span class="header-section-number">11.11</span> Exercício 14</h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\Omega \in \mathcal{F}_1\)</span>, pois <span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span></li>
+<li>Se <span class="math inline">\(C \in \mathcal{F}_1\)</span>, então <span class="math inline">\(\mathbb{P}(C) = 1\)</span> ou <span class="math inline">\(\mathbb{P}(C^c) = 1\)</span>, que é equivalente a <span class="math inline">\(\mathbb{P}((C^c)^c) = 1\)</span> ou <span class="math inline">\(\mathbb{P}(C^c) = 1\)</span>. Isso garante que <span class="math inline">\(C^c \in \mathcal{F}_1\)</span></li>
+<li>Se <span class="math inline">\(C_i \in \mathcal{F}_B, \ i \geq 1\)</span>, então, pelo exercício 8, <span class="math inline">\(\mathbb{P}(\cup C_i) = 1\)</span> ou <span class="math inline">\(\mathbb{P}(\cap C_i^c) = 0\)</span>. Isso garante que <span class="math inline">\(\cup C_i \in \mathcal{F}_1\)</span>.</li>
+</ol>
+</div>
+<div id="exercicio-15" class="section level2">
+<h2><span class="header-section-number">11.12</span> Exercício 15</h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(B \in \mathcal{F}_1\)</span>, pois <span class="math inline">\(\mathbb{P}(B \cap B) = \mathbb{P}(B)\)</span></li>
+<li>Se <span class="math inline">\(C \in \mathcal{F}_1\)</span>, então <span class="math inline">\(\mathbb{P}(C \cap B) = \mathbb{P}(B)\)</span> ou <span class="math inline">\(\mathbb{P}(B^c\cup C^c) = \mathbb{P}(B)\)</span>, que é equivalente a <span class="math inline">\(\mathbb{P}((C^c \cup B^c)^c) = \mathbb{P}(B)\)</span> ou <span class="math inline">\(\mathbb{P}(B^c \cup C^c) = \mathbb{P}(B)\)</span>. Isso garante que <span class="math inline">\(C^c \in \mathcal{F}_1\)</span></li>
+</ol>
+</div>
+<div id="exercicio-16" class="section level2">
+<h2><span class="header-section-number">11.13</span> Exercício 16</h2>
+<div id="a-5" class="section level3">
+<h3><span class="header-section-number">11.13.1</span> a)</h3>
+<p><span class="math inline">\(\sigma(C_1) = \{\emptyset,\{1,2,3,4,5,6\},\{1,2\},\{3,4,5,6\}\}\)</span></p>
+</div>
+<div id="b-3" class="section level3">
+<h3><span class="header-section-number">11.13.2</span> b)</h3>
+<p><span class="math inline">\(\sigma(C_2) = \{\emptyset,\{1,2,3,4,5,6\},\{1,2\},\{3,4,5,6\},\{1\},\{2\},\{1,3,4,5,6\},\{2,3,4,5,6\}\}\)</span></p>
+</div>
+<div id="c-1" class="section level3">
+<h3><span class="header-section-number">11.13.3</span> c)</h3>
+<p><span class="math inline">\(\sigma(C_3) = \{\emptyset,\{1,2,3,4,5,6\},\{1,2\},\{2,3,4,5,6\},\{2\},\{1\},\{3,4,5,6\},\{1,3,4,5,6\}\}\)</span></p>
+</div>
+</div>
+<div id="exercicio-17" class="section level2">
+<h2><span class="header-section-number">11.14</span> Exercício 17</h2>
+<p><span class="math inline">\(\sigma(A_1,...,A_n) = \{\emptyset,\Omega\} \cup \{A_i \cup A_j, i \neq j\} \cup \{A_i \cup A_j \cap A_k, n \geq i &gt; j &gt; k \geq 1\} \cup ... \{\Omega\cap A_i^c, \ i = 1,...,n\}\)</span></p>
+</div>
+<div id="exercicio-18" class="section level2">
+<h2><span class="header-section-number">11.15</span> Exercício 18</h2>
+<p>Primeiramente note que <span class="math inline">\((-\infty,x] = \left(\bigcup_{n \geq 1} \left[-n,x+\frac{1}{n}\right)\right) \bigcup \left(\bigcap_{n \geq 1} \left[x-\frac{1}{n},x+\frac{1}{n}\right)\right)\)</span>. Portanto, é verdade que <span class="math inline">\(\mathcal{C} \subset \sigma(\mathcal{D})\)</span>, e consequentemente <span class="math inline">\(\sigma(\mathcal{C}) \subset \sigma(\mathcal{D})\)</span>.</p>
+<p>Para concluir a demonstração, basta notar que <span class="math inline">\([x,y) = \left(\bigcap_n\left(-\infty,y+\frac{1}{n}\right]\right)\bigcap\left(\bigcap_n\left(-\infty,x+\frac{1}{n}\right]\right)^c\)</span>. Isso garante que <span class="math inline">\(\mathcal{D} \subset \sigma(\mathcal{C})\)</span>, e consequentemente <span class="math inline">\(\sigma(\mathcal{D}) \subset \sigma(\mathcal{C})\)</span>. Portanto tem-se que <span class="math inline">\(\sigma(\mathcal{D}) = \sigma(\mathcal{C})\)</span>.</p>
+</div>
+<div id="exercicio-19" class="section level2">
+<h2><span class="header-section-number">11.16</span> Exercício 19</h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathbb{P}(\Omega = \mathbb{N}) = 1\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(A) \geq 0, \forall \ A \in \mathcal{F}\)</span></li>
+<li><span class="math inline">\(\mathbb{P}\)</span> não é <span class="math inline">\(\sigma\)</span>-aditiva. Tome <span class="math inline">\(A_i = \{i\}, \ i \geq 1\)</span>. Então <span class="math inline">\(\mathbb{P}(\bigcup A_i = \mathbb{N}) \neq \sum_{i=1}^\infty \mathbb{P}(A_i) = 0\)</span></li>
+</ol>
+</div>
+<div id="exercicio-20" class="section level2">
+<h2><span class="header-section-number">11.17</span> Exercício 20</h2>
+<p>Seja <span class="math inline">\(\Omega = \mathbb{R}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathbb{P}(\Omega = \mathbb{R}) = 1\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(A) \geq 0, \forall \ A \in \mathcal{F}\)</span></li>
+<li><span class="math inline">\(\mathbb{P}\)</span> não é <span class="math inline">\(\sigma\)</span>-aditiva. Tome <span class="math inline">\(A_i = (-(i+1),-i]\cup[i,i+1), i \geq 1\)</span>. Então <span class="math inline">\(\mathbb{P}(\bigcup A_i = \mathbb{R}) \neq \sum_{i=1}^\infty \mathbb{P}(A_i) = \infty\)</span></li>
+</ol>
+</div>
+<div id="exercicio-21" class="section level2">
+<h2><span class="header-section-number">11.18</span> Exercício 21</h2>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathbb{P}(\Omega) = \sum_{i=1}^\infty \alpha_i = 1\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(A) = \sum_{i=1}^\infty \alpha_i\mathbb{P}_i(A) \geq 0, \forall \ A \in \mathcal{F}\)</span>, pois as <span class="math inline">\(\mathbb{P}_i\)</span> são medidas de probabilidade.</li>
+<li>Seja <span class="math inline">\(\{A_i\} \in \mathcal{F}\)</span> uma coleção de eventos disjuntos. <span class="math inline">\(\mathbb{P}\left(\bigcup A_j\right) = \sum_{i=1}^\infty \alpha_i\mathbb{P}_i\left(\bigcup A_j\right) = \sum_{i=1}^\infty \alpha_i \sum_{j=1}^\infty \mathbb{P}_i\left(A_j\right) = \sum_{i=1}^\infty \sum_{j=1}^\infty \alpha_i\mathbb{P}_i\left(A_j\right) = \sum_{j=1}^\infty \sum_{i=1}^\infty \alpha_i\mathbb{P}_i\left(A_j\right) = \sum_{j=1}^\infty \mathbb{P}(A_j)\)</span></li>
+</ol>
+</div>
+<div id="exercicio-22" class="section level2">
+<h2><span class="header-section-number">11.19</span> Exercício 22</h2>
+<p>Vamos começar provando a desigualdade para <span class="math inline">\(\lim \inf A_n\)</span>. Primeiramente note que <span class="math inline">\(\mathbb{P}\left(\bigcap_{k \geq n}A_k\right) \leq \mathbb{P}(A_n)\)</span>, de onde decorre que</p>
+<p><span class="math display">\[\liminf_n\mathbb{P}\left(\bigcap_{k \geq n}A_k\right) \leq \liminf_n\mathbb{P}(A_n).\]</span> Mas, como <span class="math inline">\(B_n = \bigcap_{k \geq n}A_k, \ n \geq 1\)</span> é uma sequência não decrescente de eventos, tem-se que <span class="math inline">\(\mathbb{P}(\bigcup_n B_n) = \mathbb{P}(\liminf A_n) = \lim \mathbb{P}(B_n) = \liminf\mathbb{P}(B_n)\)</span>. Considerando essa observação, a desigualdade anterior fica</p>
+<p><span class="math display">\[\mathbb{P}(\liminf A_n) = \liminf_n\mathbb{P}\left(\bigcap_{k \geq n}A_k\right) \leq \liminf_n\mathbb{P}(A_n).\]</span> A prova para o <span class="math inline">\(\limsup\)</span> pode ser feita de maneira análoga: note que <span class="math inline">\(\mathbb{P}\left(\bigcup_{k \geq n}A_k\right) \geq \mathbb{P}(A_n)\)</span>, de onde decorre que</p>
+<p><span class="math display">\[\limsup_n\mathbb{P}\left(\bigcup_{k \geq n}A_k\right) \geq \limsup_n\mathbb{P}(A_n).\]</span> Mas, como <span class="math inline">\(C_n = \bigcup_{k \geq n}A_k, \ n \geq 1\)</span> é uma sequência não crescescente de eventos, tem-se que <span class="math inline">\(\mathbb{P}(\bigcap_n C_n) = \mathbb{P}(\limsup A_n) = \lim \mathbb{P}(C_n) = \limsup\mathbb{P}(C_n)\)</span>. Considerando essa observação, a desigualdade anterior fica</p>
+<p><span class="math display">\[\mathbb{P}(\limsup A_n) = \limsup_n\mathbb{P}\left(\bigcup_{k \geq n}A_k\right) \geq \limsup_n\mathbb{P}(A_n).\]</span> # Lista 2</p>
+</div>
+<div id="exercico-1" class="section level2">
+<h2><span class="header-section-number">11.20</span> Exercico 1</h2>
+<p>Se os eventos <span class="math inline">\(A_j\)</span> são tais que <span class="math inline">\(\sum_{i=1}^\infty \mathbb{P}(A_i) &lt; \infty\)</span>, então a sequência <span class="math inline">\(p_n = \sum_{i=n}^\infty \mathbb{P}(A_i)\)</span> converge a <span class="math inline">\(0\)</span>. Além disso, nesses termos é verdade que</p>
+<p><span class="math display">\[p_n = \sum_{i=n}^\infty \mathbb{P}(A_i) \geq \mathbb{P}\left(\bigcup_{i \geq n} A_i\right).\]</span> Tomando o limite dos dois lados na desigualdade acima teremos que</p>
+<p><span class="math display">\[0 = \lim_n p_n \geq \lim_n \mathbb{P}\left(\bigcup_{i \geq n}A_i\right) \geq 0\]</span> Como <span class="math inline">\(\lim\mathbb{P}\left(\bigcup_{i \geq n}A_i\right) = \mathbb{P}(\limsup A_i)\)</span>, o resultado está demonstrado.</p>
+</div>
+<div id="exercicio-2-1" class="section level2">
+<h2><span class="header-section-number">11.21</span> Exercício 2</h2>
+<p><span class="math display">\[\mathbb{P}(A_j | A) = \frac{\mathbb{P}(A_j \cap A)}{\mathbb{P}(A)} = \frac{\mathbb{P}(A|A_j)\mathbb{P}(A_j)}{\mathbb{P}(A)} = \frac{j/15 \times (5-j)/15)}{\sum_{j=1}^5 (5-j)/15 \times j/15} = \frac{j (5-j)}{\sum_{i=1}^5 5j-j^2} = \frac{(5j-j)j}{75-55} = \frac{j(5-j)}{20}\]</span> ## Exercício 3</p>
+<p><span class="math display">\[\mathbb{P}(A|B) &gt; \mathbb{P}(A) \implies \mathbb{P}(B|A)\frac{\mathbb{P}(A)}{\mathbb{P}(B)} &gt; \mathbb{P}(A) \implies \frac{\mathbb{P}(B|A)}{\mathbb{P}(B)} &gt; 1 \]</span></p>
+</div>
+<div id="exercicio-4-1" class="section level2">
+<h2><span class="header-section-number">11.22</span> Exercício 4</h2>
+<div id="i" class="section level3">
+<h3><span class="header-section-number">11.22.1</span> i)</h3>
+<p><span class="math display">\[\mathbb{P}(A^c|B) = \frac{\mathbb{P}(A^c \cap B)}{\mathbb{P}(B)} = \frac{1-\mathbb{P}(A \cup B^c)}{\mathbb{P}(B)} = \frac{1-\mathbb{P}(A)-\mathbb{P}(B^c) + \mathbb{P}(A \cap B^c)}{\mathbb{P}(B)} = \frac{\mathbb{P}(B) - \mathbb{P}(A) + \mathbb{P}(A \cap B^c)}{\mathbb{P}(B)} = \]</span> <span class="math display">\[\frac{\mathbb{P}(B)-\mathbb{P}(A) + \mathbb{P}(A \cap B^c) + \mathbb{P}(A \cap B) - \mathbb{P}(A \cap B)}{\mathbb{P}(B)} = 1-\mathbb{P}(A|B)\]</span></p>
+</div>
+<div id="ii" class="section level3">
+<h3><span class="header-section-number">11.22.2</span> ii)</h3>
+<p><span class="math display">\[\mathbb{P}(A \cup B | C) = \frac{\mathbb{P}((A \cup B) \cap C)}{\mathbb{P}(C)} = \frac{\mathbb{P}((A \cap C) \cup (B \cap C))}{\mathbb{P}(C)} = \frac{\mathbb{P}(A\cap C) + \mathbb{P}(B \cap C) - \mathbb{P}(A \cap C \cap B \cap C)}{\mathbb{P}(C)} = \mathbb{P}(A|C) + \mathbb{P}(B | C) - \mathbb{P}(A\cap B|C)\]</span></p>
+</div>
+<div id="iii" class="section level3">
+<h3><span class="header-section-number">11.22.3</span> iii)</h3>
+<p>Seja <span class="math inline">\(\Omega = \{1,2,3,4}\)</span>, <span class="math inline">\(B = \{1,2\}\)</span> e <span class="math inline">\(A = \{1\}\)</span>. Considere o espaço de probabilidade <span class="math inline">\((\Omega,\mathcal{P}(\Omega),\mathbb{P})\)</span> em que <span class="math inline">\(\mathbb{P}(\{i\}) = 1/4\)</span>. Tem-se <span class="math inline">\(\mathbb{P}(A|B) = 1/2 \neq 1-\mathbb{P}(A|B^c) = 1\)</span></p>
+</div>
+<div id="iv" class="section level3">
+<h3><span class="header-section-number">11.22.4</span> iv)</h3>
+<p>Essa notação está certa??</p>
+</div>
+</div>
+<div id="exercicio-5-1" class="section level2">
+<h2><span class="header-section-number">11.23</span> Exercício 5</h2>
+<p><span class="math display">\[\mathbb{P}(B|U_j) = \min\{1,m_j/n_j\}, \ \mathbb{P}(U_j) = 1/3\]</span></p>
+<p><span class="math display">\[\mathbb{P}(U_j|B) = \frac{\mathbb{P}(B|U_j)\mathbb{P}(U_j)}{\mathbb{P}(B)}=\frac{\min\{1,m_j/n_j\}}{\min\{1,m_1/n_1\}+\min\{1,m_2/n_2\}+\min\{1,m_3/n_3\}}\]</span> ## Exercício 6</p>
+<p><span class="math display">\[\mathbb{P}(U_k = p) = \frac{n}{m} +\mathbb{P}(U_{k-1} = p)\left(\frac{n+1}{m}-\frac{n}{m}\right) = \frac{n}{m}+\frac{\mathbb{P}(U_{k-1} = p)}{m}, \ \forall\ k\geq2\]</span></p>
+<p>Além disso,</p>
+<p><span class="math display">\[\mathbb{P}(U_1 = p) = \frac{n}{m}\]</span></p>
+<p>Com isso, tem-se:</p>
+<p><span class="math display">\[\mathbb{P}(U_2 = p) = \frac{nm+n}{m^2}\]</span></p>
+<p><span class="math display">\[\mathbb{P}(U_3 = p) = \frac{nm^2+nm+n}{m^3}\]</span></p>
+<p>E, por indução, teremos</p>
+<p><span class="math display">\[\mathbb{P}(U_k = p) = \frac{n+\sum_{i=1}^{k-1} nm^i}{m^k}\]</span></p>
+</div>
+<div id="exercicio-7-1" class="section level2">
+<h2><span class="header-section-number">11.24</span> Exercício 7</h2>
+</div>
+<div id="exercicio-8" class="section level2">
+<h2><span class="header-section-number">11.25</span> Exercício 8</h2>
+<div id="b-4" class="section level3">
+<h3><span class="header-section-number">11.25.1</span> b)</h3>
+<p>Quando existem <span class="math inline">\(n\)</span> equações e <span class="math inline">\(n\)</span> frases, o problema pode ser resolvido considerando o espaço amostral <span class="math inline">\((P([n]),\mathcal{F},\mathbb{P})\)</span> em que <span class="math inline">\(P([n])\)</span> representa o conjunto das permutações do conjunto <span class="math inline">\(\{1,...,n\}\)</span>, <span class="math inline">\(\mathcal{F}\)</span> representa o conjunto das partes de <span class="math inline">\(P([n])\)</span> e <span class="math inline">\(\mathbb{P}\)</span> é a medida uniforme (<span class="math inline">\(\mathbb{P}(\sigma) = 1/n!\)</span>). Primeiramente, defina os conjuntos <span class="math inline">\(A_i = \text{ a }i-\text{ésima frase foi adivinhada corretamente}, i \geq 1\)</span>. Nesse contexto, o evento de interesse pode ser expresso como</p>
+<p><span class="math display">\[\text{Probabilidade de pelo menos um pareamento}=\bigcup_{i=1}^n A_i.\]</span> A probabilidade desse conjunto pode ser calculada utilizando o princípio da inclusão e exclusão:</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup_{i=1}^n A_i\right) = \sum_{\emptyset \neq I \subset \{1,...,n\}}(-1)^{|I|-1}\mathbb{P}\left(\bigcap_{i \in I}A_i\right).\]</span></p>
+<p>A igualdade acima pode ser simplificada seguindo dois passos:</p>
+<ol style="list-style-type: decimal">
+<li>Calculando <span class="math inline">\(\mathbb{P}\left(\bigcap_{i \in I}A_i\right)\)</span>. Como a medida em questão é uniforme, tem-se que</li>
+</ol>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{i \in I}A_i\right) = \frac{(n-|I|)!}{n!}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Notando que existem <span class="math inline">\(n \choose k\)</span> conjuntos <span class="math inline">\(I \subset \{1,...,n\}\)</span> tal que <span class="math inline">\(|I| = k\)</span></li>
+</ol>
+<p>Com essas duas observações, a fórmula fica</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup_{i=1}^n A_i\right) = \sum_{\emptyset \neq I \subset \{1,...,n\}}(-1)^{|I|-1}\mathbb{P}\left(\bigcap_{i \in I}A_i\right) = \sum_{i=1}^n (-1)^{i-1} {n \choose i} \frac{(n-i)!}{n!} = \sum_{i=1}^n (-1)^{i-1} \frac{1}{i!}.\]</span></p>
+</div>
+<div id="a-6" class="section level3">
+<h3><span class="header-section-number">11.25.2</span> a)</h3>
+<p>No exercício 1 do livro há 4 frases e 4 equações, portanto a probabilidade de acertar pelo menos uma delas é <span class="math inline">\(1 - 1/2 + 1/6 - 1/24\)</span>.</p>
+</div>
+<div id="c-2" class="section level3">
+<h3><span class="header-section-number">11.25.3</span> c)</h3>
+<p>Para todo <span class="math inline">\(x \in \mathbb{R}\)</span> a expansão de <span class="math inline">\(e^x\)</span> em série de potências é</p>
+<p><span class="math display">\[e^x = \sum_{i=0}^\infty \frac{x^{i}}{i!}.\]</span> Dessa fórmula decorre que</p>
+<p><span class="math display">\[e^{-1} = \sum_{i=0}^\infty \frac{(-1)^{i}}{i!} = 1-\sum_{i=1}^\infty\frac{(-1)^{i-1}}{i!} \implies 1-e^{-1} = \sum_{i=1}^\infty\frac{(-1)^{i-1}}{i!}.\]</span> Portanto</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup_{i=1}^n A_i\right) = \sum_{i=1}^\infty\frac{(-1)^{i-1}}{i!} = 1-e^{-1}.\]</span> ## Exercício 9</p>
+</div>
+<div id="a-7" class="section level3">
+<h3><span class="header-section-number">11.25.4</span> a)</h3>
+<p><span class="math display">\[\mathbb{P}(B|A_n) \geq c \implies \frac{\mathbb{P}(B \cap A_n)}{\mathbb{P}(A_n)} \geq c \implies \mathbb{P}(B \cap A_n) \geq c\mathbb{P}(A_n) \implies \sum_{i=1}^n \mathbb{P}(B \cap A_n) \geq c \sum_{i=1}^n \mathbb{P}(A_n) \implies \mathbb{P}(B \cap (\cup A_n)) \geq c\mathbb{P}(\cup A_n)\]</span> ### b)</p>
+<p><span class="math display">\[\mathbb{P}(B|A_n) = c \implies \frac{\mathbb{P}(B \cap A_n)}{\mathbb{P}(A_n)} = c \implies \mathbb{P}(B \cap A_n) = c\mathbb{P}(A_n) \implies \sum_{i=1}^n \mathbb{P}(B \cap A_n) = c \sum_{i=1}^n \mathbb{P}(A_n) \implies \mathbb{P}(B \cap (\cup A_n)) = c\mathbb{P}(\cup A_n)\]</span> ### c)</p>
+<p><span class="math display">\[\mathbb{P}(A_{n+1}|A_{n}) \leq \frac{1}{2} \implies \frac{\mathbb{P}(A_n \cap A_{n+1})}{\mathbb{P}(A_{n})} \leq \frac{1}{2} \implies \frac{\mathbb{P}(A_{n+1})}{\mathbb{P}(A_n)} \leq \frac{1}{2}\]</span> Disso decorre que:</p>
+<p><span class="math display">\[\prod_{i=1}^n\frac{\mathbb{P}(A_{i+1})}{\mathbb{P}(A_i)} \leq \frac{1}{2^n} \implies \frac{\mathbb{P}(A_{n+1})}{\mathbb{P}(A_1)} \leq \frac{1}{2^n}\]</span></p>
+<p>Como o limitante superior de <span class="math inline">\(\mathbb{P}(A_{n+1})\)</span> converge a <span class="math inline">\(0\)</span>, a sequência também converge a <span class="math inline">\(0\)</span>.</p>
+</div>
+</div>
+<div id="exercicio-10-1" class="section level2">
+<h2><span class="header-section-number">11.26</span> Exercício 10</h2>
+<p><span class="math display">\[\mathbb{P}(\text{choverá amanhã}|\text{choveu hoje}) = 0.7\]</span> <span class="math display">\[\mathbb{P}(\text{choverá amanhã}|\text{não choveu hoje}) = 0.4\]</span> <span class="math display">\[\mathbb{P}(\text{choverá depois de amanhã}|\text{choveu hoje}) = \mathbb{P}(\text{choverá amanhã}|\text{choveu hoje})\mathbb{P}(\text{choverá depois de amanhã}|\text{choverá amanhã}) + \]</span> <span class="math display">\[\mathbb{P}(\text{não choverá amanhã}|\text{choveu hoje})\mathbb{P}(\text{choverá depois de amanhã}|\text{não choverá amanhã}) =\]</span></p>
+<p><span class="math display">\[ 0.7^2 + 0.3\times0.4\]</span> ## Exercício 11</p>
+<p><span class="math display">\[\mathbb{P}(\text{erra}|\text{sabe})=0\]</span> <span class="math display">\[\mathbb{P}(\text{erra}|\text{não sabe})=1-\frac{1}{m}\]</span> <span class="math display">\[\mathbb{P}(\text{sabe}|\text{não erra}) = \frac{\mathbb{P}(\text{não erra}|\text{sabe})\mathbb{P}(\text{sabe})}{\mathbb{P}(\text{não erra})} = \frac{p}{p + (1-p)\left(1-\frac{1}{m}\right)} = \frac{p}{1 + \frac{p-1}{m}} = \frac{mp}{m+p-1}\]</span></p>
+</div>
+<div id="exercicio-12-1" class="section level2">
+<h2><span class="header-section-number">11.27</span> Exercício 12</h2>
+<div id="a-8" class="section level3">
+<h3><span class="header-section-number">11.27.1</span> a)</h3>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{k=1}^n A_i^c\right) = \prod_{k=1}^n(1-p_i)\]</span> ### b)</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup_{k=1}^n A_i\right) = \sum_{\emptyset \neq I \subset \{1,...,n\}}(-1)^{|I|-1}\mathbb{P}\left(\bigcap_{i \in I}A_i\right) = \sum_{\emptyset \neq I \subset \{1,...,n\}}(-1)^{|I|-1}\prod_{i \in I}p_i\]</span> ### c)</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup_{j=1}^n\left(\left(\bigcap_{i \neq j} A_i^c\right)\bigcap A_j\right)\right) = \sum_{j=1}^n\mathbb{P}\left(\left(\bigcap_{i \neq j} A_i^c\right)\bigcap A_j\right) = \sum_{j=1}^n p_j \prod_{i \neq j}p_i\]</span> ### d)</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup_{I \subset \{1,..,n\}, |I|=2}\left(\left(\bigcap_{i \notin I} A_i^c\right)\bigcap_{j \in I} A_j\right)\right) = \sum_{I \subset \{1,..,n\}, |I|=2}\mathbb{P}\left(\left(\bigcap_{i \notin I} A_i^c\right)\bigcap_{j \in I} A_j\right) = \sum_{I \subset \{1,..,n\}, |I|=2} \prod_{j \in I}p_j \prod_{i \notin I}p_i\]</span></p>
+</div>
+<div id="e" class="section level3">
+<h3><span class="header-section-number">11.27.2</span> e)</h3>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{i=1}^n A_i\right) = \prod_{i=1}^n p_i\]</span></p>
+</div>
+<div id="f" class="section level3">
+<h3><span class="header-section-number">11.27.3</span> f)</h3>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup_{I \subset \{1,..,n\}, |I|\leq n-1}\left(\left(\bigcap_{i \notin I} A_i^c\right)\bigcap_{j \in I} A_j\right)\right) = \sum_{I \subset \{1,..,n\}, |I|\leq n-1}\mathbb{P}\left(\left(\bigcap_{i \notin I} A_i^c\right)\bigcap_{j \in I} A_j\right) = \sum_{I \subset \{1,..,n\}, |I|\leq n-1} \prod_{j \in I}p_j \prod_{i \notin I}p_i\]</span> Existe uma solução mais simples:</p>
+<p><span class="math display">\[1-\mathbb{P}\left(\bigcap_{i=1}^n A_i\right) = 1 - \prod_{i=1}^n p_i\]</span> ## Exercício 13</p>
+</div>
+<div id="a-9" class="section level3">
+<h3><span class="header-section-number">11.27.4</span> a)</h3>
+<p><span class="math display">\[\mathbb{P}(E|G) = \mathbb{P}(E) \text{ e }\mathbb{P}(E|F) = \mathbb{P}(E) \implies \mathbb{P}(E|F\cup G) = \frac{\mathbb{P}((E \cap F) \cup (E \cap G))}{\mathbb{P}(F \cup G)} = \frac{\mathbb{P}(E)\mathbb{P}(F) + \mathbb{P}(E)\mathbb{P}(G) - \mathbb{P}(E\cap F \cap G)}{\mathbb{P}(F \cup G)} = \frac{\mathbb{P}(E)\mathbb{P}(F) + \mathbb{P}(E)\mathbb{P}(G) - \mathbb{P}(E\cap F \cap G)}{\mathbb{P}(F)+\mathbb{P}(G) - \mathbb{P}(F\cap G)}\]</span></p>
+</div>
+<div id="b-5" class="section level3">
+<h3><span class="header-section-number">11.27.5</span> b)</h3>
+<p><span class="math display">\[\mathbb{P}(E|G) = \mathbb{P}(E) \text{ e }\mathbb{P}(E|F) = \mathbb{P}(E) \implies \mathbb{P}(E|F\cup G) = \frac{\mathbb{P}((E \cap F) \cup (E \cap G))}{\mathbb{P}(F \cup G)} = \frac{\mathbb{P}(E)\mathbb{P}(F) + \mathbb{P}(E)\mathbb{P}(G) - \mathbb{P}(E\cap F \cap G)}{\mathbb{P}(F \cup G)} = \frac{\mathbb{P}(E)\mathbb{P}(F) + \mathbb{P}(E)\mathbb{P}(G) - \mathbb{P}(E\cap F \cap G)}{\mathbb{P}(F)+\mathbb{P}(G) - \mathbb{P}(F\cap G)} = \mathbb{P}(E)\]</span></p>
+</div>
+<div id="c-3" class="section level3">
+<h3><span class="header-section-number">11.27.6</span> c)</h3>
+<p><span class="math display">\[\mathbb{P}(F|G) = \mathbb{P}(F) \text{ e }\mathbb{P}(E|F)=\mathbb{P}(E)\text{ e }\mathbb{P}(E|F \cap G) = \mathbb{P}(E) \implies \mathbb{P}(G|E \cap F) = \frac{\mathbb{P}(G \cap E \cap F)}{\mathbb{P}(E \cap F)} = \frac{\mathbb{P}(E)\mathbb{P}(F \cap G)}{\mathbb{P}(E)\mathbb{P}(F)} = \frac{\mathbb{P}(E)\mathbb{P}(F)\mathbb{P}(G)}{\mathbb{P}(E)\mathbb{P}(F)} = \mathbb{P}(G)\]</span> ## Exercício 14</p>
+<p><span class="math display">\[\mathbb{P}(E_n \cap F_n) = \mathbb{P}(E_n)\mathbb{P}(F_n), \forall \ n \geq 1\]</span> <span class="math display">\[\mathbb{P}\left(\bigcup E_n \bigcap \bigcup F_n\right) = \mathbb{P}\left(\bigcup_{i=1}^{\infty} E_i\bigcap F_i\right) = \lim \mathbb{P}\left(\bigcup_{i=1}^n E_i \cap F_i\right) = \lim \mathbb{P}\left(E_n \cap F_n\right) = \lim \mathbb{P}(E_n) \lim \mathbb{P}(F_n) = \mathbb{P}(E)\mathbb{P}(F)\]</span></p>
+</div>
+</div>
+<div id="exercicio-15-1" class="section level2">
+<h2><span class="header-section-number">11.28</span> Exercício 15</h2>
+<p>Considere o espaço de mensurável de infinitos lançamentos de moedas <span class="math inline">\((\Omega,\mathcal{F})\)</span>, onde <span class="math inline">\(\mathcal{F}\)</span> é a <span class="math inline">\(\sigma\)</span>-álgebra gerada pelos conjuntos que dependem apenas de um número finito de lançamentos. Sendo <span class="math inline">\(\omega\)</span> um elemento de <span class="math inline">\(\Omega\)</span>, defina <span class="math inline">\(X_i(\omega) = \omega_i\)</span> e <span class="math inline">\(\mathbb{P}(X_i = 1) = a_i\)</span>, com todas as <span class="math inline">\(X_i\)</span> sendo independentes. Seja <span class="math inline">\(\mathbb{P}\)</span> a medida de probabilidade gerada pelas variáveis aleatórias <span class="math inline">\(X_1, X_2, X_3,...\)</span>. Para demonstar o que se pede no enunciado do exercício vamos considerar os seguintes eventos:</p>
+<p><span class="math display">\[ \mathbb{P}\left(\bigcap_{i=1}^\infty \{X_i = 0\}\right) = \prod_{i=1}^\infty(1-a_i) \]</span> <span class="math display">\[ \mathbb{P}\left(\bigcup_{i=1}^\infty \{X_i = 1\}\right) = \mathbb{P}\left(\bigcup_{i=1}^\infty \left(\{X_i = 1\}\bigcap\bigcap_{j=1}^{i-1}\{X_j = 0 \}\right)\right) = \sum_{i=1}^\infty\left[a_i\prod_{j=1}^{i-1}(1-a_j)\right]\]</span></p>
+<p>Em que as duas últimas desigualdades valem, respectivamente, pois:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\omega \in \bigcup_{i=1}^\infty \{X_i = 1\} \iff \exists \ k : \omega \in \{X_k = 1\}\bigcap\left(\bigcap_{j=1}^{k-1}\{X_j = 0\}\right)\)</span>. (<span class="math inline">\(\Rightarrow\)</span>) Se <span class="math inline">\(\omega \in \bigcup_{i=1}^\infty \{X_i = 1\}\)</span>, <span class="math inline">\(I = \{i : w_i = 1\}\)</span> é não vazio e consequentemente admite mínimo. Se <span class="math inline">\(i^* = \min I\)</span>, então <span class="math inline">\(\omega \in \{X_i^* = 1\}\bigcap\left(\bigcap_{j=1}^{i^*-1}\{X_j = 0\}\right)\)</span> por construção. (<span class="math inline">\(\Leftarrow\)</span>) Seja <span class="math inline">\(k\)</span> um índice tal que <span class="math inline">\(\omega \in \{X_k = 1\}\bigcap\left(\bigcap_{j=1}^{k-1}\{X_j = 0\}\right)\)</span>. Então, como <span class="math inline">\(\{X_k = 1\}\)</span>, <span class="math inline">\(\omega \in \bigcup_{i=1}^\infty \{X_i = 1\}\)</span>.</li>
+<li><span class="math inline">\(\{X_k = 1\}\bigcap\left(\bigcap_{j=1}^{k-1}\{X_j = 0\}\right)\)</span> são disjuntos para todo <span class="math inline">\(k\)</span>.</li>
+</ol>
+<p>Como <span class="math inline">\(\bigcap_{i=1}^\infty \{X_i = 0\} = \left(\bigcup_{i=1}^\infty \{X_i = 1\}\right)^c\)</span>, o resultado está demonstrado.</p>
+</div>
+<div id="exercicio-16-1" class="section level2">
+<h2><span class="header-section-number">11.29</span> Exercício 16</h2>
+<p><span class="math display">\[P_n = p + (1-2p)P_{n-1}, \ n \geq 1\]</span> <span class="math display">\[P_0 = 1\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Vale para <span class="math inline">\(n = 1\)</span>. <span class="math inline">\(P_1 = p + (1-2p) = 1-p = \frac{1+(1-2p)^1}{2}\)</span></li>
+<li>Se vale para <span class="math inline">\(n\)</span>, vale para <span class="math inline">\(n+1\)</span>:</li>
+</ol>
+<p><span class="math display">\[P_{n+1} = p + (1-2p)\frac{1+(1-2p)^n}{2} = p + \frac{1-2p + (1-2p)^{n+1}}{2} = \frac{1 + (1-2p)^{n+1}}{2}\]</span></p>
+</div>
+<div id="exercicio-17-1" class="section level2">
+<h2><span class="header-section-number">11.30</span> Exercício 17</h2>
+<p><span class="math display">\[\mathbb{P}(U_{n+1} = U_1) = \alpha_n = \mathbb{P}(U_{n} = U_1)\mathbb{P}(U_{n+1} = U_1 | U_{n} = U_1) + (1-\mathbb{P}(U_n = U_1))\mathbb{P}(U_{n+1}=U_1|U_n = U_2) =\]</span> <span class="math display">\[\mathbb{P}(U_n = U_1)(\mathbb{P}(U_{n+1} = U_1 | U_{n} = U_1) -\mathbb{P}(U_{n+1}=U_1|U_n = U_2)) + \mathbb{P}(U_{n+1}=U_1|U_n = U_2) = \alpha_n(p - (1-p&#39;)) + (1-p&#39;).\]</span></p>
+<p>Vamos provar por indução que</p>
+<p><span class="math display">\[\alpha_{n} = \frac{1-p&#39;}{2-p-p&#39;} + \left(\alpha - \frac{1-p&#39;}{2-p-p&#39;}\right)(p + p&#39; - 1)^{n-1}, n \geq 1\]</span> 1. Vale para <span class="math inline">\(n = 1\)</span></p>
+<p><span class="math display">\[\alpha_1 = \frac{1-p&#39;}{2-p-p&#39;} + (\alpha - \frac{1-p&#39;}{2-p-p&#39;})(p + p&#39; -1)^0 = \alpha\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Se vale para <span class="math inline">\(n\)</span> vale para <span class="math inline">\(n+1\)</span>:</li>
+</ol>
+<p><span class="math display">\[\alpha_{n+1} = \left(\frac{1-p&#39;}{2-p-p&#39;} + \left(\alpha - \frac{1-p&#39;}{2-p-p&#39;}\right)(p + p&#39; - 1)^{n-1}\right)(p+p&#39;-1)+1-p&#39; = \]</span> <span class="math display">\[\left(\frac{(1-p&#39;)(p+p&#39;-1)}{2-p-p&#39;} + \left(\alpha - \frac{1-p&#39;}{2-p-p&#39;}\right)(p+p&#39;-1)^n\right)+1-p&#39; = \]</span> <span class="math display">\[\left(\frac{(1-p&#39;)(p+p&#39;-1) + (1-p&#39;)(2-p-p&#39;)}{2-p-p&#39;} + \left(\alpha - \frac{1-p&#39;}{2-p-p&#39;}\right)(p+p&#39;-1)^n\right) = \]</span> <span class="math display">\[\frac{(1-p&#39;)}{2-p-p&#39;} + \left(\alpha - \frac{1-p&#39;}{2-p-p&#39;}\right)(p+p&#39;-1)^n\]</span></p>
+<p>Para os limites, temos que:</p>
+<p><span class="math display">\[\lim \alpha_n = \frac{1-p&#39;}{2-p-p&#39;}\]</span> <span class="math display">\[P_n = \alpha_np + (1-\alpha_n)p&#39;\]</span> <span class="math display">\[\lim P_n = \frac{p-pp&#39;}{2-p-p&#39;}+\frac{p&#39;-pp&#39;}{2-p-p&#39;} = \frac{p+p&#39;-2pp&#39;}{2-p-p&#39;}\]</span> ### Exercício 18</p>
+<p><span class="math display">\[\mathbb{P}(\text{chove no dia }n) = \mathbb{P}(\text{chove no dia }n-1)\mathbb{P}(\text{chove no dia }n|\text{chove no dia }n-1) + (1-\mathbb{P}(\text{chove no dia }n-1))\mathbb{P}(\text{chove no dia }n|\text{não chove no dia }n-1) = \]</span> <span class="math display">\[\mathbb{P}(\text{chove no dia }n-1)(p - 1 +p) + 1-p.\]</span></p>
+<p>Vamos provar por indução que</p>
+<p><span class="math display">\[P_n = \frac{1}{2} + \frac{1}{2}(2p-1)^n, n \geq 0.\]</span> 1. Vale para <span class="math inline">\(n = 0\)</span></p>
+<p><span class="math display">\[P_0 = \frac{1}{2} + \frac{1}{2}(2p-1)^0 = 1\]</span> 2. Se vale para <span class="math inline">\(n\)</span>, vale pare <span class="math inline">\(n+1\)</span>:</p>
+<p><span class="math display">\[P_{n+1} = (2p-1)\left(\frac{1}{2}+\frac{1}{2}(2p-1)^n\right) + 1-p = \frac{2-2p+2p-1}{2} + \frac{1}{2}(2p-1)^{n+1} = \frac{1}{2} + \frac{1}{2}(2p-1)^{n+1}\]</span> ### Exercício 19</p>
+<p>Considere o espaço de probabilidades <span class="math inline">\((\Omega = \{1,2,3,4,5,6\},\mathcal{P}(\mathbb{\Omega}), \mathbb{P}(\{i\} = 1/6))\)</span>. Tome <span class="math inline">\(E_1 = \{1,2,3\}, E_2 = \{1,4\}, F = \{1,2,3,4\}\)</span>. Nessas condições <span class="math inline">\(\mathbb{P}(E_1 \cap E_2) = \mathbb{P}(E_1)\mathbb{P}(E_2)\)</span>, mas <span class="math inline">\(\mathbb{P}(E_1 \cap E_2 | F) = \frac{\mathbb{P}(\{1\})}{4/6} = 1/4 \neq \frac{3/6}{4/6}\frac{2/6}{4/6} = \frac{6}{16}\)</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aula-10.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

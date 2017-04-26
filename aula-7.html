@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Uma Introdução À Probabilidade E Inferência Estatística</title>
+  <meta name="description" content="Notas de aula da disciplina MAEXXXX - Introdução À Probabilidade E Inferência Estatística, oferecida no programa de pós-graduação em Estatística do IME-USP.">
+  <meta name="generator" content="bookdown 0.3.14 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Uma Introdução À Probabilidade E Inferência Estatística" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Notas de aula da disciplina MAEXXXX - Introdução À Probabilidade E Inferência Estatística, oferecida no programa de pós-graduação em Estatística do IME-USP." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Uma Introdução À Probabilidade E Inferência Estatística" />
+  
+  <meta name="twitter:description" content="Notas de aula da disciplina MAEXXXX - Introdução À Probabilidade E Inferência Estatística, oferecida no programa de pós-graduação em Estatística do IME-USP." />
+  
+
+<meta name="author" content="Luis Gustavo Esteves, Victor Fossaluza e Fernando Corrêa">
+
+
+<meta name="date" content="2017-04-25">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="aula-6.html">
+<link rel="next" href="aula-8.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">IME-USP</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preâmbulo</a></li>
+<li class="chapter" data-level="2" data-path="aula-2.html"><a href="aula-2.html"><i class="fa fa-check"></i><b>2</b> Aula 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="aula-2.html"><a href="aula-2.html#avaliacao"><i class="fa fa-check"></i><b>2.1</b> Avaliação</a></li>
+<li class="chapter" data-level="2.2" data-path="aula-2.html"><a href="aula-2.html#aula-anterior-resumo"><i class="fa fa-check"></i><b>2.2</b> Aula anterior: resumo</a></li>
+<li class="chapter" data-level="2.3" data-path="aula-2.html"><a href="aula-2.html#classes-de-subconjuntos-de-omega"><i class="fa fa-check"></i><b>2.3</b> Classes de subconjuntos de <span class="math inline">\(\Omega\)</span></a><ul>
+<li class="chapter" data-level="2.3.1" data-path="aula-2.html"><a href="aula-2.html#algebras"><i class="fa fa-check"></i><b>2.3.1</b> Álgebras</a></li>
+<li class="chapter" data-level="2.3.2" data-path="aula-2.html"><a href="aula-2.html#sigma-algebras"><i class="fa fa-check"></i><b>2.3.2</b> <span class="math inline">\(\sigma\)</span>-álgebras</a></li>
+<li class="chapter" data-level="2.3.3" data-path="aula-2.html"><a href="aula-2.html#resultado"><i class="fa fa-check"></i><b>2.3.3</b> Resultado</a></li>
+<li class="chapter" data-level="2.3.4" data-path="aula-2.html"><a href="aula-2.html#demonstracao"><i class="fa fa-check"></i><b>2.3.4</b> Demonstração</a></li>
+<li class="chapter" data-level="2.3.5" data-path="aula-2.html"><a href="aula-2.html#resultado-1"><i class="fa fa-check"></i><b>2.3.5</b> Resultado</a></li>
+<li class="chapter" data-level="2.3.6" data-path="aula-2.html"><a href="aula-2.html#demonstracao-1"><i class="fa fa-check"></i><b>2.3.6</b> Demonstração</a></li>
+<li class="chapter" data-level="2.3.7" data-path="aula-2.html"><a href="aula-2.html#sigma-algebra-dos-intervalos-da-reta-ou-sigma-algebra-de-borel"><i class="fa fa-check"></i><b>2.3.7</b> <span class="math inline">\(\sigma\)</span>-álgebra dos intervalos da reta (ou <span class="math inline">\(\sigma\)</span>-álgebra de Borel)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="aula-2.html"><a href="aula-2.html#probabilidades"><i class="fa fa-check"></i><b>2.4</b> Probabilidades</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="aula-3.html"><a href="aula-3.html"><i class="fa fa-check"></i><b>3</b> Aula 3</a><ul>
+<li class="chapter" data-level="3.1" data-path="aula-3.html"><a href="aula-3.html#propriedades-de-medidas-de-probabilidade"><i class="fa fa-check"></i><b>3.1</b> Propriedades de medidas de probabilidade</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="aula-3.html"><a href="aula-3.html#demonstracao-2"><i class="fa fa-check"></i><b>3.1.1</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.2" data-path="aula-3.html"><a href="aula-3.html#demonstracao-3"><i class="fa fa-check"></i><b>3.1.2</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.3" data-path="aula-3.html"><a href="aula-3.html#demonstracao-4"><i class="fa fa-check"></i><b>3.1.3</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.4" data-path="aula-3.html"><a href="aula-3.html#demonstracao-5"><i class="fa fa-check"></i><b>3.1.4</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.5" data-path="aula-3.html"><a href="aula-3.html#demonstracao-6"><i class="fa fa-check"></i><b>3.1.5</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.6" data-path="aula-3.html"><a href="aula-3.html#demonstracao-7"><i class="fa fa-check"></i><b>3.1.6</b> Demonstração</a></li>
+<li class="chapter" data-level="3.1.7" data-path="aula-3.html"><a href="aula-3.html#demonstracao-8"><i class="fa fa-check"></i><b>3.1.7</b> Demonstração</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="aula-4.html"><a href="aula-4.html"><i class="fa fa-check"></i><b>4</b> Aula 4</a><ul>
+<li class="chapter" data-level="4.1" data-path="aula-4.html"><a href="aula-4.html#definicao-alternativa-de-probabilidade"><i class="fa fa-check"></i><b>4.1</b> Definiçao alternativa de probabilidade</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="aula-4.html"><a href="aula-4.html#exemplo-1"><i class="fa fa-check"></i><b>4.1.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="4.1.2" data-path="aula-4.html"><a href="aula-4.html#exemplo-2"><i class="fa fa-check"></i><b>4.1.2</b> Exemplo 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="aula-4.html"><a href="aula-4.html#modelo-continuo"><i class="fa fa-check"></i><b>4.2</b> Modelo contínuo</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="aula-5.html"><a href="aula-5.html"><i class="fa fa-check"></i><b>5</b> Aula 5</a><ul>
+<li class="chapter" data-level="5.1" data-path="aula-5.html"><a href="aula-5.html#modelo-continuo-1"><i class="fa fa-check"></i><b>5.1</b> Modelo contínuo</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="aula-5.html"><a href="aula-5.html#formula-da-probabilidade-total"><i class="fa fa-check"></i><b>5.1.1</b> Fórmula da probabilidade total</a></li>
+<li class="chapter" data-level="5.1.2" data-path="aula-5.html"><a href="aula-5.html#exemplo-1-1"><i class="fa fa-check"></i><b>5.1.2</b> Exemplo 1</a></li>
+<li class="chapter" data-level="5.1.3" data-path="aula-5.html"><a href="aula-5.html#teorema-de-bayes"><i class="fa fa-check"></i><b>5.1.3</b> Teorema de Bayes</a></li>
+<li class="chapter" data-level="5.1.4" data-path="aula-5.html"><a href="aula-5.html#exemplo"><i class="fa fa-check"></i><b>5.1.4</b> Exemplo</a></li>
+<li class="chapter" data-level="5.1.5" data-path="aula-5.html"><a href="aula-5.html#exemplo-3"><i class="fa fa-check"></i><b>5.1.5</b> Exemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="aula-5.html"><a href="aula-5.html#independencia"><i class="fa fa-check"></i><b>5.2</b> Independência</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="aula-6.html"><a href="aula-6.html"><i class="fa fa-check"></i><b>6</b> Aula 6</a><ul>
+<li class="chapter" data-level="6.1" data-path="aula-6.html"><a href="aula-6.html#sub-sigma-algebras"><i class="fa fa-check"></i><b>6.1</b> Sub-<span class="math inline">\(\sigma\)</span> álgebras</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="aula-7.html"><a href="aula-7.html"><i class="fa fa-check"></i><b>7</b> Aula 7</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="aula-7.html"><a href="aula-7.html#medidas-induzidas-por-variaveis-aleatorias"><i class="fa fa-check"></i><b>7.0.1</b> Medidas induzidas por variáveis aleatórias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="aula-8.html"><a href="aula-8.html"><i class="fa fa-check"></i><b>8</b> Aula 8</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="aula-8.html"><a href="aula-8.html#vetores-aleatorios"><i class="fa fa-check"></i><b>8.0.1</b> Vetores aleatórios</a></li>
+<li class="chapter" data-level="8.0.2" data-path="aula-8.html"><a href="aula-8.html#vetores-aleatorios-discretos"><i class="fa fa-check"></i><b>8.0.2</b> Vetores aleatórios discretos</a></li>
+<li class="chapter" data-level="8.0.3" data-path="aula-8.html"><a href="aula-8.html#vetores-aleatorios-continuos"><i class="fa fa-check"></i><b>8.0.3</b> Vetores aleatórios contínuos</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="aula-9.html"><a href="aula-9.html"><i class="fa fa-check"></i><b>9</b> Aula 9</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="aula-9.html"><a href="aula-9.html#modelos-continuos"><i class="fa fa-check"></i><b>9.0.1</b> Modelos Contínuos</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="aula-10.html"><a href="aula-10.html"><i class="fa fa-check"></i><b>10</b> Aula 10</a><ul>
+<li class="chapter" data-level="10.1" data-path="aula-10.html"><a href="aula-10.html#indepencia-de-variaveis-aleatorias"><i class="fa fa-check"></i><b>10.1</b> Indepência de variáveis aleatórias</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="aula-10.html"><a href="aula-10.html#resultado-2"><i class="fa fa-check"></i><b>10.1.1</b> Resultado</a></li>
+<li class="chapter" data-level="10.1.2" data-path="aula-10.html"><a href="aula-10.html#resultado-3"><i class="fa fa-check"></i><b>10.1.2</b> Resultado</a></li>
+<li class="chapter" data-level="10.1.3" data-path="aula-10.html"><a href="aula-10.html#demonstracao-9"><i class="fa fa-check"></i><b>10.1.3</b> Demonstração</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lista-1.html"><a href="lista-1.html"><i class="fa fa-check"></i><b>11</b> Lista 1</a><ul>
+<li class="chapter" data-level="11.1" data-path="lista-1.html"><a href="lista-1.html#exercicio-1"><i class="fa fa-check"></i><b>11.1</b> Exercício 1</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="lista-1.html"><a href="lista-1.html#a"><i class="fa fa-check"></i><b>11.1.1</b> a)</a></li>
+<li class="chapter" data-level="11.1.2" data-path="lista-1.html"><a href="lista-1.html#b"><i class="fa fa-check"></i><b>11.1.2</b> b)</a></li>
+<li class="chapter" data-level="11.1.3" data-path="lista-1.html"><a href="lista-1.html#exercicio-2"><i class="fa fa-check"></i><b>11.1.3</b> Exercício 2</a></li>
+<li class="chapter" data-level="11.1.4" data-path="lista-1.html"><a href="lista-1.html#exercicio-3"><i class="fa fa-check"></i><b>11.1.4</b> Exercício 3</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="lista-1.html"><a href="lista-1.html#exercicio-4"><i class="fa fa-check"></i><b>11.2</b> Exercício 4</a></li>
+<li class="chapter" data-level="11.3" data-path="lista-1.html"><a href="lista-1.html#exercicio-5"><i class="fa fa-check"></i><b>11.3</b> Exercício 5</a></li>
+<li class="chapter" data-level="11.4" data-path="lista-1.html"><a href="lista-1.html#exercicio-6"><i class="fa fa-check"></i><b>11.4</b> Exercício 6</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="lista-1.html"><a href="lista-1.html#a-1"><i class="fa fa-check"></i><b>11.4.1</b> a)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="lista-1.html"><a href="lista-1.html#exercicio-7"><i class="fa fa-check"></i><b>11.5</b> Exercício 7</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="lista-1.html"><a href="lista-1.html#a-2"><i class="fa fa-check"></i><b>11.5.1</b> a)</a></li>
+<li class="chapter" data-level="11.5.2" data-path="lista-1.html"><a href="lista-1.html#c"><i class="fa fa-check"></i><b>11.5.2</b> c)</a></li>
+<li class="chapter" data-level="11.5.3" data-path="lista-1.html"><a href="lista-1.html#a-3"><i class="fa fa-check"></i><b>11.5.3</b> a)</a></li>
+<li class="chapter" data-level="11.5.4" data-path="lista-1.html"><a href="lista-1.html#b-1"><i class="fa fa-check"></i><b>11.5.4</b> b)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="lista-1.html"><a href="lista-1.html#exercicio-9"><i class="fa fa-check"></i><b>11.6</b> Exercício 9</a></li>
+<li class="chapter" data-level="11.7" data-path="lista-1.html"><a href="lista-1.html#exercicio-10"><i class="fa fa-check"></i><b>11.7</b> Exercício 10</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="lista-1.html"><a href="lista-1.html#a-4"><i class="fa fa-check"></i><b>11.7.1</b> a)</a></li>
+<li class="chapter" data-level="11.7.2" data-path="lista-1.html"><a href="lista-1.html#b-2"><i class="fa fa-check"></i><b>11.7.2</b> b)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="lista-1.html"><a href="lista-1.html#exercicio-11"><i class="fa fa-check"></i><b>11.8</b> Exercício 11</a></li>
+<li class="chapter" data-level="11.9" data-path="lista-1.html"><a href="lista-1.html#exercicio-12"><i class="fa fa-check"></i><b>11.9</b> Exercício 12</a></li>
+<li class="chapter" data-level="11.10" data-path="lista-1.html"><a href="lista-1.html#exercicio-13"><i class="fa fa-check"></i><b>11.10</b> Exercício 13</a></li>
+<li class="chapter" data-level="11.11" data-path="lista-1.html"><a href="lista-1.html#exercicio-14"><i class="fa fa-check"></i><b>11.11</b> Exercício 14</a></li>
+<li class="chapter" data-level="11.12" data-path="lista-1.html"><a href="lista-1.html#exercicio-15"><i class="fa fa-check"></i><b>11.12</b> Exercício 15</a></li>
+<li class="chapter" data-level="11.13" data-path="lista-1.html"><a href="lista-1.html#exercicio-16"><i class="fa fa-check"></i><b>11.13</b> Exercício 16</a><ul>
+<li class="chapter" data-level="11.13.1" data-path="lista-1.html"><a href="lista-1.html#a-5"><i class="fa fa-check"></i><b>11.13.1</b> a)</a></li>
+<li class="chapter" data-level="11.13.2" data-path="lista-1.html"><a href="lista-1.html#b-3"><i class="fa fa-check"></i><b>11.13.2</b> b)</a></li>
+<li class="chapter" data-level="11.13.3" data-path="lista-1.html"><a href="lista-1.html#c-1"><i class="fa fa-check"></i><b>11.13.3</b> c)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.14" data-path="lista-1.html"><a href="lista-1.html#exercicio-17"><i class="fa fa-check"></i><b>11.14</b> Exercício 17</a></li>
+<li class="chapter" data-level="11.15" data-path="lista-1.html"><a href="lista-1.html#exercicio-18"><i class="fa fa-check"></i><b>11.15</b> Exercício 18</a></li>
+<li class="chapter" data-level="11.16" data-path="lista-1.html"><a href="lista-1.html#exercicio-19"><i class="fa fa-check"></i><b>11.16</b> Exercício 19</a></li>
+<li class="chapter" data-level="11.17" data-path="lista-1.html"><a href="lista-1.html#exercicio-20"><i class="fa fa-check"></i><b>11.17</b> Exercício 20</a></li>
+<li class="chapter" data-level="11.18" data-path="lista-1.html"><a href="lista-1.html#exercicio-21"><i class="fa fa-check"></i><b>11.18</b> Exercício 21</a></li>
+<li class="chapter" data-level="11.19" data-path="lista-1.html"><a href="lista-1.html#exercicio-22"><i class="fa fa-check"></i><b>11.19</b> Exercício 22</a></li>
+<li class="chapter" data-level="11.20" data-path="lista-1.html"><a href="lista-1.html#exercico-1"><i class="fa fa-check"></i><b>11.20</b> Exercico 1</a></li>
+<li class="chapter" data-level="11.21" data-path="lista-1.html"><a href="lista-1.html#exercicio-2-1"><i class="fa fa-check"></i><b>11.21</b> Exercício 2</a></li>
+<li class="chapter" data-level="11.22" data-path="lista-1.html"><a href="lista-1.html#exercicio-4-1"><i class="fa fa-check"></i><b>11.22</b> Exercício 4</a><ul>
+<li class="chapter" data-level="11.22.1" data-path="lista-1.html"><a href="lista-1.html#i"><i class="fa fa-check"></i><b>11.22.1</b> i)</a></li>
+<li class="chapter" data-level="11.22.2" data-path="lista-1.html"><a href="lista-1.html#ii"><i class="fa fa-check"></i><b>11.22.2</b> ii)</a></li>
+<li class="chapter" data-level="11.22.3" data-path="lista-1.html"><a href="lista-1.html#iii"><i class="fa fa-check"></i><b>11.22.3</b> iii)</a></li>
+<li class="chapter" data-level="11.22.4" data-path="lista-1.html"><a href="lista-1.html#iv"><i class="fa fa-check"></i><b>11.22.4</b> iv)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.23" data-path="lista-1.html"><a href="lista-1.html#exercicio-5-1"><i class="fa fa-check"></i><b>11.23</b> Exercício 5</a></li>
+<li class="chapter" data-level="11.24" data-path="lista-1.html"><a href="lista-1.html#exercicio-7-1"><i class="fa fa-check"></i><b>11.24</b> Exercício 7</a></li>
+<li class="chapter" data-level="11.25" data-path="lista-1.html"><a href="lista-1.html#exercicio-8"><i class="fa fa-check"></i><b>11.25</b> Exercício 8</a><ul>
+<li class="chapter" data-level="11.25.1" data-path="lista-1.html"><a href="lista-1.html#b-4"><i class="fa fa-check"></i><b>11.25.1</b> b)</a></li>
+<li class="chapter" data-level="11.25.2" data-path="lista-1.html"><a href="lista-1.html#a-6"><i class="fa fa-check"></i><b>11.25.2</b> a)</a></li>
+<li class="chapter" data-level="11.25.3" data-path="lista-1.html"><a href="lista-1.html#c-2"><i class="fa fa-check"></i><b>11.25.3</b> c)</a></li>
+<li class="chapter" data-level="11.25.4" data-path="lista-1.html"><a href="lista-1.html#a-7"><i class="fa fa-check"></i><b>11.25.4</b> a)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.26" data-path="lista-1.html"><a href="lista-1.html#exercicio-10-1"><i class="fa fa-check"></i><b>11.26</b> Exercício 10</a></li>
+<li class="chapter" data-level="11.27" data-path="lista-1.html"><a href="lista-1.html#exercicio-12-1"><i class="fa fa-check"></i><b>11.27</b> Exercício 12</a><ul>
+<li class="chapter" data-level="11.27.1" data-path="lista-1.html"><a href="lista-1.html#a-8"><i class="fa fa-check"></i><b>11.27.1</b> a)</a></li>
+<li class="chapter" data-level="11.27.2" data-path="lista-1.html"><a href="lista-1.html#e"><i class="fa fa-check"></i><b>11.27.2</b> e)</a></li>
+<li class="chapter" data-level="11.27.3" data-path="lista-1.html"><a href="lista-1.html#f"><i class="fa fa-check"></i><b>11.27.3</b> f)</a></li>
+<li class="chapter" data-level="11.27.4" data-path="lista-1.html"><a href="lista-1.html#a-9"><i class="fa fa-check"></i><b>11.27.4</b> a)</a></li>
+<li class="chapter" data-level="11.27.5" data-path="lista-1.html"><a href="lista-1.html#b-5"><i class="fa fa-check"></i><b>11.27.5</b> b)</a></li>
+<li class="chapter" data-level="11.27.6" data-path="lista-1.html"><a href="lista-1.html#c-3"><i class="fa fa-check"></i><b>11.27.6</b> c)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.28" data-path="lista-1.html"><a href="lista-1.html#exercicio-15-1"><i class="fa fa-check"></i><b>11.28</b> Exercício 15</a></li>
+<li class="chapter" data-level="11.29" data-path="lista-1.html"><a href="lista-1.html#exercicio-16-1"><i class="fa fa-check"></i><b>11.29</b> Exercício 16</a></li>
+<li class="chapter" data-level="11.30" data-path="lista-1.html"><a href="lista-1.html#exercicio-17-1"><i class="fa fa-check"></i><b>11.30</b> Exercício 17</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Uma Introdução À Probabilidade E Inferência Estatística</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aula-7" class="section level1">
+<h1><span class="header-section-number">Capítulo7</span> Aula 7</h1>
+<div id="medidas-induzidas-por-variaveis-aleatorias" class="section level3">
+<h3><span class="header-section-number">7.0.1</span> Medidas induzidas por variáveis aleatórias</h3>
+<p>Toda variável aleatória <span class="math inline">\(X:\Omega\rightarrow\mathbb{R}\)</span> definida em um espaço de probabilidade <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span> pode ser traduzida para uma medida de probabilidade na reta, no espaço mensurável <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> (a reta e seus borelianos). Essa medida caracteriza completamente a variável <span class="math inline">\(X\)</span> no seu espaço original, de tal forma que pode-se abandonar o espaço original para os cálculos probalísticos.</p>
+<p>A medida induzida por <span class="math inline">\(X\)</span> é dada por</p>
+<p><span class="math display">\[\mathbb{P}_X = \{\omega : X(\omega) \in B\}, \ B \in \mathcal{B}(\mathbb{R}).\]</span></p>
+<p>Essa função é de fato uma medida sobre o espaço mensurável da reta e seus borelianos pois</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathbb{P}(X^{-1}(\mathbb{R})) = \mathbb{P}(\Omega) = 1\)</span></li>
+<li><span class="math inline">\(X^{-1}(\cup B_n) = \cup X^{-1}(B_n)\)</span></li>
+<li>Se <span class="math inline">\(B_n\)</span> for uma sequência de eventos disjuntos, então <span class="math inline">\(\mathbb{P}(X^{-1}(\cup_n B_n)) = \mathbb{P}(\cup_n X^{-1}(B_n)) \leq \sum_{i=1}^n\mathbb{P}(X^{-1}(B_n))\)</span></li>
+</ol>
+<p>Para aproveitar a estrutura dos números reais na análise de variáveis aleatórias, o passo importante é definir a função de distribuição <span class="math inline">\(F_X:\mathbb{R}\rightarrow[0,1]\)</span> de uma variável aleatória <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[F_X(x) = \mathbb{P}((-\infty,x]) = \mathbb{P}(\omega: X(\omega)\in(-\infty,x]) = \mathbb{P}(X \leq x).\]</span> Devido às propriedades de <span class="math inline">\(\mathbb{P}\)</span>, a função <span class="math inline">\(F_X\)</span> tem uma série de propriedades:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(F_X\)</span> é não-decrescente.</li>
+<li><span class="math inline">\(F_X\)</span> é contínua à direita.</li>
+</ol>
+<p>Seja <span class="math inline">\((x_n)_{1}^\infty\)</span> uma sequência decrescente tal que <span class="math inline">\(x_n \rightarrow x\)</span>. Então</p>
+<p><span class="math display">\[F_X(x_n) = F_X(\lim_n x_n) = \mathbb{P}(\lim_n X \in (-\infty,x_n]) = \lim_n\mathbb{P}(X \in (-\infty,x_n]) \geq\]</span> <span class="math display">\[\lim_n \mathbb{P}(x \in (-\infty, x_{n+1}]) = F_X(x_{n+1})\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p><span class="math inline">\(\lim_{x \rightarrow -\infty}F(x) = 0\)</span> e <span class="math inline">\(\lim_{x \rightarrow \infty}F(x) = 1\)</span></p></li>
+<li><p>A quantidade de pontos tais que <span class="math inline">\(F_X(x-) \neq F_X(x+)\)</span> é enumerável.</p></li>
+</ol>
+<p>Considere <span class="math inline">\(D =\{x:F_X(x)-F_X(x-)&gt;0\}\)</span>, o conjunto de descontinuidades da função <span class="math inline">\(F_X\)</span>. Digamos que o conjunto <span class="math inline">\(D\)</span> é formado por <span class="math inline">\(\{B_x\}\)</span>, com <span class="math inline">\(x\)</span> em <span class="math inline">\([x:F_X(x)=F_X(x-)]\)</span>. Para qualquer conjunto <span class="math inline">\(A \in \mathcal{B}(\mathbb{R})\)</span>, e <span class="math inline">\(\epsilon &gt; 0\)</span> arbitrário, temos que</p>
+<p><span class="math display">\[n\epsilon \leq \sum_{x=1}^n\mathbb{P}(B_x \cap A) \leq \mathbb{P}(A), \ \text{quando }\mathbb{P}(B_x \cap A)\geq \epsilon &gt; 0.\]</span></p>
+<p>Segue que <span class="math inline">\(n \leq \frac{\mathbb{P}(A)}{\epsilon}\)</span>, e portanto o número de descontinuidades em <span class="math inline">\(A\)</span> é finita. Para concluir a demonstração, falta mostrar que podemos escrever <span class="math inline">\(\{x: \mathbb{P}(B_x \cap A)\}\)</span> como uma união enumerável.</p>
+<p><span class="math display">\[\{x: \mathbb{P}(B_x \cap A) &gt; 0\} = \bigcup_{\epsilon \in \mathbb{Q+}} \{x: \mathbb{P}(B_x \cap A) &gt; \epsilon\}\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aula-6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aula-8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
