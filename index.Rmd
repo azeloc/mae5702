@@ -1,0 +1,18 @@
+--- 
+title: "Uma Introdução À Probabilidade E Inferência Estatística"
+author: "Luis Gustavo Esteves, Victor Fossaluza e Fernando Corrêa"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Notas de aula da disciplina MAEXXXX - Introdução À Probabilidade E Inferência Estatística, oferecida no programa de pós-graduação em Estatística do IME-USP."
+---
+
+# Preâmbulo
+
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra ut lacus molestie feugiat. Ut in porta orci, et cursus est. Quisque scelerisque neque eget luctus ullamcorper. Proin maximus tortor sit amet maximus hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tincidunt in massa sit amet viverra. Maecenas laoreet vestibulum orci at imperdiet. Cras quis neque id turpis sodales luctus imperdiet ut leo. Nunc imperdiet mattis hendrerit. Praesent aliquet turpis eu congue iaculis.
+
+Maecenas auctor augue a ornare tincidunt. Nulla facilisi. Aliquam luctus felis nec est rhoncus efficitur. Integer iaculis vel nunc sit amet consequat. Nam feugiat aliquam consequat. Aenean luctus ante ut dolor venenatis, nec tempus arcu venenatis. Maecenas porttitor, tellus a placerat dignissim, enim nisi volutpat sem, vel vulputate nunc lorem vitae justo. Nunc gravida mauris ac justo blandit, vel mollis turpis blandit. Aenean pharetra ex quis enim semper, non pretium quam facilisis. Duis sed porttitor ligula, consectetur eleifend neque. Ut hendrerit lacus sed leo accumsan, eget interdum leo bibendum. Sed quis viverra enim. Suspendisse id nisi aliquam, ultrices urna at, aliquam ex. Vivamus pulvinar nisl eu nisi feugiat semper. 

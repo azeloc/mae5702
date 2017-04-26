@@ -386,7 +386,7 @@ $$\mathbb{P}(U_k = p) = \frac{n+\sum_{i=1}^{k-1} nm^i}{m^k}$$
 
 Quando existem $n$ equações e $n$ frases, o problema pode ser resolvido considerando o espaço amostral $(P([n]),\mathcal{F},\mathbb{P})$ em que $P([n])$ representa o conjunto das permutações do conjunto $\{1,...,n\}$, $\mathcal{F}$ representa o conjunto das partes de $P([n])$ e $\mathbb{P}$ é a medida uniforme ($\mathbb{P}(\sigma) = 1/n!$). Primeiramente, defina os conjuntos $A_i = \text{ a }i-\text{ésima frase foi adivinhada corretamente}, i \geq 1$. Nesse contexto, o evento de interesse pode ser expresso como
 
-$$\text{Probabilidade de pelo menos um paramento correto }=\bigcup_{i=1}^n A_i.$$
+$$\text{Probabilidade de pelo menos um pareamento}=\bigcup_{i=1}^n A_i.$$
 A probabilidade desse conjunto pode ser calculada utilizando o princípio da inclusão e exclusão:
 
 $$\mathbb{P}\left(\bigcup_{i=1}^n A_i\right) = \sum_{\emptyset \neq I \subset \{1,...,n\}}(-1)^{|I|-1}\mathbb{P}\left(\bigcap_{i \in I}A_i\right).$$
